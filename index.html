@@ -141,9 +141,11 @@
                 <script>
                     function createPortfolioCard(imagePath, businessName) {
                         // The image path now points directly to the file in the root directory
+                        // Spaces in filenames are replaced with %20 for URL compatibility
+                        const safeImagePath = imagePath.replace(/ /g, '%20');
                         return `
                             <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                                <img src="${imagePath}" alt="${businessName}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/4A76A8?text=Missing+Image';this.alt='Missing Image: ${businessName}'">
+                                <img src="${safeImagePath}" alt="${businessName}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/4A76A8?text=Missing+Image';this.alt='Missing Image: ${businessName}'">
                                 <div class="p-4">
                                     <h4 class="text-lg font-semibold text-gray-800">${businessName}</h4>
                                 </div>
@@ -159,21 +161,21 @@
                     <script>
                         const motels = [
                             {img: 'Fairfield By Marriot-KC Downtown.jpg', name: 'Fairfield Inn, MO'},
-                            {img: 'Hampton Inn-Wichita.jpg', name: 'Hampton Inn, KS'},
+                            {img: 'Hampton Inn-Wichita.jpg', name: 'Hampton Inn, Wichita, KS'},
                             {img: 'Sonesta-Kansas city.jpg', name: 'Sonesta Essential, KS'},
-                            {img: 'Laquinta-Olathe.jpg', name: 'La Quinta Inn, KS'},
+                            {img: 'Laquinta-Olathe.jpg', name: 'La Quinta Inn, Olathe, KS'},
                             {img: 'Laquinta-Kansas city Airport.jpg', name: 'La Quinta Inn (Airport)'},
                             {img: 'Wingate By Wyndham.jpg', name: 'Wingate By Wyndham, MO'},
-                            {img: 'Comfort Suites-Olathe.jpg', name: 'Comfort Suites, KS'},
-                            {img: 'comfort suites-Coloumbia.jpg', name: 'Comfort Suites, MO (Columbia)'},
-                            {img: 'Comfort Inn Suites-Hannibal.jpg', name: 'Comfort Inn & Suites, MO'},
-                            {img: 'Comfort inn Suites-Marshall.jpg', name: 'Comfort Inn, MO (Marshall)'},
-                            {img: 'Comfort inn Suites-Warrensburg.jpg', name: 'Comfort Inn, MO (Warrensburg)'},
-                            {img: 'Comfort Inn Suites-Pittsburg.jpg', name: 'Comfort Inn & Suites, KS'},
-                            {img: 'Country inn Suites-Nevada.jpg', name: 'Country Inn & Suites, MO'},
-                            {img: 'Quality inn-Bethany.jpg', name: 'Quality Inn & Suites, MO'},
+                            {img: 'Comfort Suites-Olathe.jpg', name: 'Comfort Suites, Olathe, KS'},
+                            {img: 'comfort suites-Coloumbia.jpg', name: 'Comfort Suites, Columbia, MO'},
+                            {img: 'Comfort Inn Suites-Hannibal.jpg', name: 'Comfort Inn & Suites, Hannibal, MO'},
+                            {img: 'Comfort inn Suites-Marshall.jpg', name: 'Comfort Inn, Marshall, MO'},
+                            {img: 'Comfort inn Suites-Warrensburg.jpg', name: 'Comfort Inn, Warrensburg, MO'},
+                            {img: 'Comfort Inn Suites-Pittsburg.jpg', name: 'Comfort Inn & Suites, Pittsburg, KS'},
+                            {img: 'Country inn Suites-Nevada.jpg', name: 'Country Inn & Suites, Nevada, MO'},
+                            {img: 'Quality inn-Bethany.jpg', name: 'Quality Inn & Suites, Bethany, MO'},
                             {img: 'Hampton In-Overland park.jpg', name: 'Hampton Inn, Overland Park, KS'},
-                            {img: 'Holiday Inn Express-Pittsburg.jpg', name: 'Holiday Inn Express, KS'}
+                            {img: 'Holiday Inn Express-Pittsburg.jpg', name: 'Holiday Inn Express, Pittsburg, KS'}
                         ];
                         const motelsGrid = document.getElementById('motels-grid');
                         motels.forEach(motel => motelsGrid.innerHTML += createPortfolioCard(motel.img, motel.name));
@@ -186,6 +188,8 @@
                     <div id="restaurants-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
                      <script>
                         const restaurants = [
+                            // You will need to upload these images to your GitHub repository
+                            // I am using placeholders for now.
                             {img: 'Goodcents-Liberty.jpg', name: 'Goodcents, MO'},
                             {img: 'Lennys Grill & Subs-Overland Park.jpg', name: 'Lennys Grill & Subs, KS'}
                         ];
