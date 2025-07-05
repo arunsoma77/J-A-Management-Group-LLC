@@ -109,8 +109,8 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="images/about-us.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4A76A8?text=J%26A+Management+Group';"
+                        <img src="https://placehold.co/600x400/e2e8f0/4A76A8?text=J%26A+Management+Group" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/334155?text=Image+Not+Found';"
                              alt="Professional business setting" 
                              class="rounded-lg shadow-xl w-full h-auto">
                     </div>
@@ -140,6 +140,7 @@
                 <!-- Portfolio Category Function -->
                 <script>
                     function createPortfolioCard(imagePath, businessName) {
+                        // The image path now points directly to the file in the root directory
                         return `
                             <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                                 <img src="${imagePath}" alt="${businessName}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/4A76A8?text=Missing+Image';this.alt='Missing Image: ${businessName}'">
@@ -157,63 +158,39 @@
                     <div id="motels-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
                     <script>
                         const motels = [
-                            {img: 'images/fairfield-inn.jpg', name: 'Fairfield Inn, MO'},
-                            {img: 'images/hampton-inn.jpg', name: 'Hampton Inn, KS'},
-                            {img: 'images/sonesta.jpg', name: 'Sonesta Essential, KS'},
-                            {img: 'images/laquinta-olathe.jpg', name: 'La Quinta Inn, KS'},
-                            {img: 'images/laquinta-airport.jpg', name: 'La Quinta Inn (Airport)'},
-                            {img: 'images/wingate.jpg', name: 'Wingate By Wyndham, MO'},
-                            {img: 'images/comfort-suites-kc.jpg', name: 'Comfort Suites, MO (KC)'},
-                            {img: 'images/comfort-suites-columbia.jpg', name: 'Comfort Suites, MO (Columbia)'}
+                            {img: 'Fairfield By Marriot-KC Downtown.jpg', name: 'Fairfield Inn, MO'},
+                            {img: 'Hampton Inn-Wichita.jpg', name: 'Hampton Inn, KS'},
+                            {img: 'Sonesta-Kansas city.jpg', name: 'Sonesta Essential, KS'},
+                            {img: 'Laquinta-Olathe.jpg', name: 'La Quinta Inn, KS'},
+                            {img: 'Laquinta-Kansas city Airport.jpg', name: 'La Quinta Inn (Airport)'},
+                            {img: 'Wingate By Wyndham.jpg', name: 'Wingate By Wyndham, MO'},
+                            {img: 'Comfort Suites-Olathe.jpg', name: 'Comfort Suites, KS'},
+                            {img: 'comfort suites-Coloumbia.jpg', name: 'Comfort Suites, MO (Columbia)'},
+                            {img: 'Comfort Inn Suites-Hannibal.jpg', name: 'Comfort Inn & Suites, MO'},
+                            {img: 'Comfort inn Suites-Marshall.jpg', name: 'Comfort Inn, MO (Marshall)'},
+                            {img: 'Comfort inn Suites-Warrensburg.jpg', name: 'Comfort Inn, MO (Warrensburg)'},
+                            {img: 'Comfort Inn Suites-Pittsburg.jpg', name: 'Comfort Inn & Suites, KS'},
+                            {img: 'Country inn Suites-Nevada.jpg', name: 'Country Inn & Suites, MO'},
+                            {img: 'Quality inn-Bethany.jpg', name: 'Quality Inn & Suites, MO'},
+                            {img: 'Hampton In-Overland park.jpg', name: 'Hampton Inn, Overland Park, KS'},
+                            {img: 'Holiday Inn Express-Pittsburg.jpg', name: 'Holiday Inn Express, KS'}
                         ];
                         const motelsGrid = document.getElementById('motels-grid');
                         motels.forEach(motel => motelsGrid.innerHTML += createPortfolioCard(motel.img, motel.name));
                     </script>
                 </div>
 
-                <!-- Restaurants -->
+                <!-- Restaurants (Add images when available) -->
                 <div class="mb-16">
                     <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b-2 border-brand-blue pb-2 mb-6">Restaurants</h3>
                     <div id="restaurants-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
                      <script>
                         const restaurants = [
-                            {img: 'images/goodcents.jpg', name: 'Goodcents, MO'},
-                            {img: 'images/lennys-grill.jpg', name: 'Lennys Grill & Subs, KS'}
+                            {img: 'Goodcents-Liberty.jpg', name: 'Goodcents, MO'},
+                            {img: 'Lennys Grill & Subs-Overland Park.jpg', name: 'Lennys Grill & Subs, KS'}
                         ];
                         const restaurantsGrid = document.getElementById('restaurants-grid');
                         restaurants.forEach(r => restaurantsGrid.innerHTML += createPortfolioCard(r.img, r.name));
-                    </script>
-                </div>
-
-                <!-- Liquor Stores -->
-                <div class="mb-16">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b-2 border-brand-blue pb-2 mb-6">Liquor Stores</h3>
-                    <div id="liquor-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
-                    <script>
-                        const liquorStores = [
-                            {img: 'images/crown-liquor-ks.jpg', name: 'Crown Liquor, KS'},
-                            {img: 'images/ten-star-liquor.jpg', name: 'Ten Star Liquor, KS'},
-                            {img: 'images/happy-hour-liquor.jpg', name: 'Happy Hour Liquor, KS'},
-                            {img: 'images/liquor-studio.jpg', name: 'Liquor Studio, MO'}
-                        ];
-                        const liquorGrid = document.getElementById('liquor-grid');
-                        liquorStores.forEach(l => liquorGrid.innerHTML += createPortfolioCard(l.img, l.name));
-                    </script>
-                </div>
-
-                <!-- Gas Stations -->
-                 <div class="mb-16">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b-2 border-brand-blue pb-2 mb-6">Gas Stations & Food Marts</h3>
-                    <div id="gas-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
-                     <script>
-                        const gasStations = [
-                            {img: 'images/bobcat-foodmart.jpg', name: 'Bobcat Food Mart, KS'},
-                            {img: 'images/desoto-jmart.jpg', name: 'Desoto J Mart, KS'},
-                            {img: 'images/lake-stop.jpg', name: 'Lake Stop, KS'},
-                            {img: 'images/haskell-foodmart.jpg', name: 'Haskell Food Mart, KS'}
-                        ];
-                        const gasGrid = document.getElementById('gas-grid');
-                        gasStations.forEach(g => gasGrid.innerHTML += createPortfolioCard(g.img, g.name));
                     </script>
                 </div>
             </div>
