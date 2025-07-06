@@ -13,6 +13,7 @@
         :root { --brand-blue: #4A76A8; }
         .bg-brand-blue { background-color: var(--brand-blue); }
         .text-brand-blue { color: var(--brand-blue); }
+        .border-brand-blue { border-color: var(--brand-blue); }
         .hover\:bg-brand-blue-dark:hover { background-color: #3e6490; }
         .nav-active { color: var(--brand-blue) !important; font-weight: 600; }
         .transition-all { transition: all 0.3s ease-in-out; }
@@ -27,6 +28,10 @@
             z-index: -100;
             transform: translateX(-50%) translateY(-50%);
             background-size: cover;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            color: var(--brand-blue);
         }
     </style>
 </head>
@@ -81,57 +86,97 @@
             </div>
         </section>
 
-        <!-- Welcome Section -->
+        <!-- Our Core Services Section -->
         <section class="py-20 md:py-28 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Welcome to J&A Management Group</h2>
-                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                    We are a premier management firm dedicated to fostering growth and excellence across a diverse portfolio of businesses. Our expertise in administrative and support services ensures every venture we manage achieves its full potential.
-                 </p>
-                 <a href="about.html" class="mt-6 inline-block text-brand-blue font-semibold hover:underline">Learn More About Us &rarr;</a>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Core Services</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                        We provide comprehensive management solutions tailored to the unique needs of each business we partner with.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <!-- Service 1: Hospitality -->
+                    <div class="service-card">
+                        <div class="flex justify-center mb-4">
+                            <div class="p-4 bg-brand-blue/10 rounded-full">
+                               <svg class="w-12 h-12 text-brand-blue service-icon transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M8.25 21h7.5M12 3v18" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Hospitality Management</h3>
+                        <p class="mt-2 text-gray-600">Expert oversight for motels and hotels, focusing on guest experience and operational efficiency.</p>
+                    </div>
+                    <!-- Service 2: Retail -->
+                    <div class="service-card">
+                        <div class="flex justify-center mb-4">
+                             <div class="p-4 bg-brand-blue/10 rounded-full">
+                                <svg class="w-12 h-12 text-brand-blue service-icon transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.25m11.25 0H21m-9-7.5h7.5m-7.5 0a.75.75 0 01-.75-.75V3.75c0-.414.336-.75.75-.75h3a.75.75 0 01.75.75v12.75a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Retail & C-Stores</h3>
+                        <p class="mt-2 text-gray-600">Strategic management for liquor stores and gas stations to maximize profitability and customer loyalty.</p>
+                    </div>
+                    <!-- Service 3: Restaurants -->
+                    <div class="service-card">
+                         <div class="flex justify-center mb-4">
+                            <div class="p-4 bg-brand-blue/10 rounded-full">
+                                <svg class="w-12 h-12 text-brand-blue service-icon transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Restaurant Operations</h3>
+                        <p class="mt-2 text-gray-600">Driving success for dining establishments through operational excellence and culinary innovation.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Featured Properties Section -->
+        <!-- Why Choose Us Section -->
         <section class="py-20 md:py-28 bg-gray-50">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Featured Properties</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                        A glimpse into the quality establishments we proudly manage.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Featured Property 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://kcgalaxy.com/wp-content/uploads/2022/12/Fairfield-Inn-Kansas-City-MO.jpg" alt="Fairfield Inn" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900">Fairfield Inn, MO</h3>
-                            <p class="mt-2 text-gray-600">Excellence in hospitality and comfort.</p>
-                        </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why Partner With J&A Management?</h2>
+                        <p class="mt-4 text-lg text-gray-600">
+                           We don't just manage businesses; we build legacies. Our hands-on approach is rooted in a deep understanding of our industries, allowing us to implement strategies that deliver tangible results and sustainable growth.
+                        </p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong class="font-semibold">Proven Expertise:</strong> Decades of combined experience in hospitality and retail management.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong class="font-semibold">Dedicated Support:</strong> A commitment to providing the resources and support each business needs to thrive.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong class="font-semibold">Strategic Vision:</strong> Focused on long-term value creation and market leadership.</span>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- Featured Property 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://kcgalaxy.com/wp-content/uploads/2022/12/Hampton-Inn-Overland-Park-KS.jpg" alt="Hampton Inn" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900">Hampton Inn, KS</h3>
-                            <p class="mt-2 text-gray-600">Top-tier service for every guest.</p>
-                        </div>
-                    </div>
-                    <!-- Featured Property 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://kcgalaxy.com/wp-content/uploads/2022/12/Goodcents-Liberty-MO.jpg" alt="Goodcents Restaurant" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900">Goodcents Restaurant</h3>
-                            <p class="mt-2 text-gray-600">Quality ingredients and delicious meals.</p>
-                        </div>
+                    <div class="order-1 md:order-2">
+                         <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" 
+                             alt="Business team collaborating" 
+                             class="rounded-lg shadow-xl w-full h-auto">
                     </div>
                 </div>
-                 <div class="text-center mt-12">
-                    <a href="portfolio.html" class="bg-brand-blue text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all">
-                        View Our Full Portfolio
-                    </a>
-                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section class="bg-brand-blue text-white">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="text-3xl font-bold">Ready to See Our Work?</h2>
+                <p class="mt-2 text-lg text-gray-200">Explore the diverse range of successful businesses under our management.</p>
+                <a href="portfolio.html" class="mt-6 inline-block bg-white text-brand-blue font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-all">
+                    View Full Portfolio
+                </a>
             </div>
         </section>
 
