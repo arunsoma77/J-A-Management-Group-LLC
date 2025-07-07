@@ -17,7 +17,6 @@
         .hover\:bg-brand-blue-dark:hover { background-color: #3e6490; }
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
-        /* Style to ensure the video covers the background */
         #hero-video {
             position: absolute;
             top: 50%;
@@ -177,4 +176,8 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
         
-        document.getElementById('current-year').textContent = new D
+        // SCRIPT CORRECTED HERE
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
