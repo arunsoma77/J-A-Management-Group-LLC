@@ -17,21 +17,11 @@
         .hover\:bg-brand-blue-dark:hover { background-color: #3e6490; }
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
-
-        /* Styling for the header scroll effect */
-        #main-header {
-            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        #main-header.header-scrolled {
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            backdrop-filter: blur(12px);
-        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50">
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
                 <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="J&A Management Group LLC Logo" class="h-10 w-auto">
@@ -44,9 +34,9 @@
                 <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue">Our Team</a>
                 <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6 text-white md:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="index.html" class="block nav-link hover:text-brand-blue py-2 nav-active">Home</a>
             <a href="about.html" class="block nav-link hover:text-brand-blue py-2">About</a>
             <a href="portfolio.html" class="block nav-link hover:text-brand-blue py-2">Our Portfolio</a>
@@ -66,7 +56,7 @@
                 <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
                     J&A Management Group LLC is the cornerstone of a thriving family of businesses, providing expert oversight and strategic direction across the hospitality, retail, and restaurant sectors.
                 </p>
-                <a href="portfolio.html" class="mt-8 inline-block bg-brand-blue text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all">
+                <a href="portfolio.html" class="mt-8 inline-block bg-brand-blue text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl active:scale-95">
                     Explore Our Portfolio
                 </a>
             </div>
@@ -146,7 +136,7 @@
             <div class="container mx-auto px-6 py-16 text-center" data-aos="fade-up">
                 <h2 class="text-3xl font-bold font-headline">Ready to See Our Work?</h2>
                 <p class="mt-2 text-lg text-gray-200">Explore the diverse range of successful businesses under our management.</p>
-                <a href="portfolio.html" class="mt-6 inline-block bg-white text-brand-blue font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-all">
+                <a href="portfolio.html" class="mt-6 inline-block bg-white text-brand-blue font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl active:scale-95">
                     View Full Portfolio
                 </a>
             </div>
@@ -164,8 +154,8 @@
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 800, // values from 0 to 3000, with step 50ms
-            once: true, // whether animation should happen only once - while scrolling down
+            duration: 800,
+            once: true, 
         });
 
         // Mobile menu toggle
@@ -175,16 +165,6 @@
         
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Header scroll effect
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
     </script>
 </body>
 </html>
