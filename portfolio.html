@@ -57,6 +57,7 @@
             <div class="container mx-auto px-6">
                 <script>
                     function createPortfolioCard(imagePath, businessName) {
+                        const encodedSubject = encodeURIComponent(`Inquiry about ${businessName}`);
                         return `
                             <div class="group bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col">
                                 <div class="h-48 overflow-hidden">
@@ -66,7 +67,7 @@
                                     <h4 class="text-lg font-bold text-gray-800">${businessName}</h4>
                                 </div>
                                 <div class="p-5 pt-0">
-                                    <a href="#" class="text-sm font-semibold text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Details &rarr;</a>
+                                    <a href="contact.html?subject=${encodedSubject}" class="text-sm font-semibold text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Details &rarr;</a>
                                 </div>
                             </div>
                         `;
