@@ -78,8 +78,8 @@
                         <i class="fas fa-map-marker-alt fa-2x"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Our Office</h3>
-                    <p class="text-gray-600">Your Street Address</p>
-                    <p class="text-gray-600">Kansas City, MO, USA</p>
+                    <p class="text-gray-600">6901 NW 83rd st</p>
+                    <p class="text-gray-600">Kansas City, MO 64152</p>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md p-8 text-center">
@@ -87,8 +87,8 @@
                         <i class="fas fa-phone fa-2x"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Contact</h3>
-                    <p class="text-gray-600">Arun Kumar Soma</p>
-                    <p class="text-gray-600">309-844-0476</p>
+                    <p class="text-gray-600">Jay Patel</p>
+                    <p class="text-gray-600">913-282-0434</p>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md p-8 text-center">
@@ -96,7 +96,7 @@
                         <i class="fas fa-envelope fa-2x"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Email</h3>
-                    <p class="text-gray-600">arun@jaamg.com</p>
+                    <p class="text-gray-600">Jay@jaamg.com</p>
                 </div>
 
             </div>
@@ -145,12 +145,9 @@
     </div>
 
     <script>
-        // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-        
-        // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // Show contact popup after 3 seconds
@@ -161,7 +158,7 @@
             }
         }, 3000);
 
-        // NEW SCRIPT TO PRE-FILL SUBJECT
+        // Pre-fill subject from URL
         window.addEventListener('DOMContentLoaded', (event) => {
             const params = new URLSearchParams(window.location.search);
             const subject = params.get('subject');
