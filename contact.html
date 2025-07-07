@@ -62,11 +62,8 @@
         </div>
     </header>
 
-    <section class="bg-brand-blue py-24 text-white text-center relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-            <img src="https://images.pexels.com/photos/3184431/pexels-photo-3184431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Contact Background" class="w-full h-full object-cover">
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
+    <section class="bg-brand-blue py-24 text-white text-center">
+        <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h1>
             <p class="text-lg md:text-xl max-w-xl mx-auto">We're here to help your business thrive. Reach out to us today for partnerships, inquiries, and more.</p>
         </div>
@@ -136,7 +133,7 @@
     </main>
 
     <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
+        <div class="container mx-auto px-6 py-8 text-center">
             <p class="font-semibold text-lg">J&A Management Group LLC</p>
             <p class="mt-2 text-gray-400">© <span id="current-year"></span> All Rights Reserved.</p>
         </div>
@@ -148,9 +145,12 @@
     </div>
 
     <script>
+        // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+        
+        // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // Show contact popup after 3 seconds
@@ -160,6 +160,18 @@
                 popup.classList.add('show');
             }
         }, 3000);
+
+        // NEW SCRIPT TO PRE-FILL SUBJECT
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const params = new URLSearchParams(window.location.search);
+            const subject = params.get('subject');
+            if (subject) {
+                const subjectField = document.getElementById('subject');
+                if (subjectField) {
+                    subjectField.value = decodeURIComponent(subject);
+                }
+            }
+        });
     </script>
 </body>
 </html>
