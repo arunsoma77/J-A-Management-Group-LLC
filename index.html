@@ -28,15 +28,15 @@
                 <span class="text-xl font-bold text-gray-800">J&A Management Group</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active">Home</a>
-                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue">About</a>
-                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue">Our Portfolio</a>
-                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue">Our Team</a>
-                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue">Contact</a>
+                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Home</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">About</a>
+                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Portfolio</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Team</a>
+                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Contact</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
             <a href="index.html" class="block nav-link hover:text-brand-blue py-2 nav-active">Home</a>
             <a href="about.html" class="block nav-link hover:text-brand-blue py-2">About</a>
             <a href="portfolio.html" class="block nav-link hover:text-brand-blue py-2">Our Portfolio</a>
@@ -152,18 +152,15 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 800,
             once: true, 
         });
 
-        // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
         
-        // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
