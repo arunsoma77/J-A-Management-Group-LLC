@@ -81,13 +81,14 @@
                         const motels = [
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Hampton-Overland-19.jpg', name: 'Hampton Inn, Overland Park'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Comfort-21.jpg', name: 'Comfort Inn & Suites'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2025/04/Sonesta-ES.jpg', name: 'Sonesta ES'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/02/Best-hotel-near-kansas-city-MCI-AIrport-La-Quinta-inn-and-Suites.jpg', name: 'La Quinta Inn & Suites, MCI Airport'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/La-Quinta-Olathe-15-1024x768.jpg', name: 'La Quinta Inn, Olathe'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2023/02/232839501.jpg', name: 'Wingate by Wyndham'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2023/02/Quality-inn-Bethany-Mo.jpg', name: 'Quality Inn, Bethany'},
+                            {img: 'https://i.ibb.co/0pKCSTQg/unnamed.jpg', name: 'Wingate by Wyndham'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Comfort-Marshall-14.jpg', name: 'Comfort Inn, Marshall'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2024/04/Ham-INN-WHICATA-1024x683.png', name: 'Hampton Inn, Wichita'}
+                            {img: 'https://kcgalaxy.com/wp-content/uploads/2024/04/Ham-INN-WHICATA-1024x683.png', name: 'Hampton Inn, Wichita'},
+                            {img: 'https://i.ibb.co/gZJSL8q5/2025-05-09.jpg', name: 'Fairfield By Marriot'},
+                            {img: 'https://i.ibb.co/bjhV08Yc/HIX-Gallery-II6.jpg', name: 'Holiday Inn Express & Staybridge'},
+                            {img: 'https://i.ibb.co/DH37t7Bn/unnamed-3.jpg', name: 'Holiday Inn Express | Pittsburg KS'}
                         ];
                         const motelsGrid = document.getElementById('motels-grid');
                         motels.forEach(motel => motelsGrid.innerHTML += createPortfolioCard(motel.img, motel.name));
@@ -114,7 +115,6 @@
                         const gasStations = [
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Jmart-3.jpg', name: 'J-Mart'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2025/04/Conoco.jpg', name: 'Conoco'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Sunoco-13-1024x651.png', name: 'Sunoco'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Haskell-Food-Mart-7.jpg', name: 'Haskell Food Mart'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Lakestop-4.jpg', name: 'Lake Stop'}
                         ];
@@ -132,8 +132,8 @@
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2025/04/Cabool-MO-1024x521.jpg', name: 'Galaxy Liquor & Smoke, Cabool'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2024/04/Lqiuro-Studio-Independence-Mo-1024x418.jpg', name: 'Liquor Studio, Independence'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2024/04/Whiskey-Barell.jpg', name: 'Whiskey Barrel'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/IMG-9276-1-1024x768.jpg', name: 'Ten Star Liquor'},
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2025/04/images.jpg', name: '941 E 23rd St, Lawrence'},
+                            {img: 'https://i.ibb.co/2YK9wVGq/unnamed-2.jpg', name: 'Ten Star Liquor'},
+                            {img: 'https://i.ibb.co/XxcZ1LJD/941-E-23rd-St-Lawrence-KS-Primary-Photo-1-High-Definition.jpg', name: '941 E 23rd St, Lawrence, KS 66046 - COMMERCE PLAZA'},
                             {img: 'https://kcgalaxy.com/wp-content/uploads/2023/09/Crown-Liquor-1.jpg', name: 'Crown Liquor, Blue Springs'}
                         ];
                         const liquorStoresGrid = document.getElementById('liquor-stores-grid');
@@ -142,14 +142,14 @@
                 </div>
 
                 <div class="mb-16">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b-2 border-brand-blue pb-2 mb-6">Construction</h3>
-                    <div id="construction-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
-                     <script>
-                        const construction = [
-                            {img: 'https://kcgalaxy.com/wp-content/uploads/2025/04/Convention-Center-1024x768.jpg', name: 'KC Prime Construction'}
+                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b-2 border-brand-blue pb-2 mb-6">Pest Management</h3>
+                    <div id="pest-control-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                    <script>
+                        const pestControl = [
+                            {img: 'https://i.ibb.co/qLrTx1QN/qt-q-95.webp', name: 'JT Pest Management Group'}
                         ];
-                        const constructionGrid = document.getElementById('construction-grid');
-                        construction.forEach(c => constructionGrid.innerHTML += createPortfolioCard(c.img, c.name));
+                        const pestControlGrid = document.getElementById('pest-control-grid');
+                        pestControl.forEach(pc => pestControlGrid.innerHTML += createPortfolioCard(pc.img, pc.name));
                     </script>
                 </div>
 
