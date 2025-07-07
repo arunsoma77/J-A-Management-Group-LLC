@@ -17,6 +17,19 @@
         .hover\:bg-brand-blue-dark:hover { background-color: #3e6490; }
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
+        /* Style to ensure the video covers the background */
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -47,7 +60,10 @@
 
     <main>
         <section id="home" class="relative text-white h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg');"></div>
+            <video autoplay loop muted playsinline id="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-professional-business-team-in-a-meeting-306-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="absolute inset-0 bg-black/60"></div>
             <div class="relative container mx-auto px-6 py-24 text-center" data-aos="fade-in" data-aos-duration="1500">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight font-headline">
