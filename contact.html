@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -16,6 +16,7 @@
         .text-brand-blue { color: var(--brand-blue); }
         .hover\:bg-brand-blue-dark:hover { background-color: var(--brand-blue-dark); }
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
+        .font-headline { font-family: 'Playfair Display', serif; }
         .popup {
             position: fixed;
             bottom: 20px;
@@ -38,22 +39,22 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
                 <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="J&A Management Group LLC Logo" class="h-10 w-auto">
                 <span class="text-xl font-bold text-gray-900">J&A Management Group</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue">Home</a>
-                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue">About</a>
-                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue">Our Portfolio</a>
-                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue">Our Team</a>
-                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active">Contact</a>
+                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Home</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">About</a>
+                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Portfolio</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Team</a>
+                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Contact</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
             <a href="index.html" class="block nav-link hover:text-brand-blue py-2">Home</a>
             <a href="about.html" class="block nav-link hover:text-brand-blue py-2">About</a>
             <a href="portfolio.html" class="block nav-link hover:text-brand-blue py-2">Our Portfolio</a>
@@ -64,7 +65,7 @@
 
     <section class="bg-brand-blue py-24 text-white text-center">
         <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-headline">Let's Connect</h1>
             <p class="text-lg md:text-xl max-w-xl mx-auto">We're here to help your business thrive. Reach out to us today for partnerships, inquiries, and more.</p>
         </div>
     </section>
@@ -72,7 +73,6 @@
     <main class="py-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
                 <div class="bg-white rounded-lg shadow-md p-8 text-center">
                     <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
                         <i class="fas fa-map-marker-alt fa-2x"></i>
@@ -81,7 +81,6 @@
                     <p class="text-gray-600">6901 NW 83rd st</p>
                     <p class="text-gray-600">Kansas City, MO 64152</p>
                 </div>
-
                 <div class="bg-white rounded-lg shadow-md p-8 text-center">
                     <div class="w-16 h-16 rounded-full bg-green-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
                         <i class="fas fa-phone fa-2x"></i>
@@ -90,7 +89,6 @@
                     <p class="text-gray-600">Jay Patel</p>
                     <p class="text-gray-600">913-282-0434</p>
                 </div>
-
                 <div class="bg-white rounded-lg shadow-md p-8 text-center">
                     <div class="w-16 h-16 rounded-full bg-yellow-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
                         <i class="fas fa-envelope fa-2x"></i>
@@ -98,11 +96,10 @@
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Email</h3>
                     <p class="text-gray-600">Jay@jaamg.com</p>
                 </div>
-
             </div>
 
             <div class="max-w-3xl mx-auto mt-16 bg-white p-8 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Send us a Message</h2>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center font-headline">Send us a Message</h2>
                 <form action="#" method="POST">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -123,7 +120,7 @@
                         <textarea name="message" id="message" rows="5" required class="mt-1 block w-full px-4 py-2 bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-brand-blue focus:border-brand-blue"></textarea>
                     </div>
                     <div class="mt-8 text-center">
-                        <button type="submit" class="bg-brand-blue text-white font-semibold px-10 py-3 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-opacity-50">
+                        <button type="submit" class="bg-brand-blue text-white font-semibold px-10 py-3 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl active:scale-95">
                             Send Message
                         </button>
                     </div>
@@ -149,16 +146,12 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
         document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Show contact popup after 3 seconds
         setTimeout(() => {
             const popup = document.getElementById('contact-popup');
             if(popup) {
                 popup.classList.add('show');
             }
         }, 3000);
-
-        // Pre-fill subject from URL
         window.addEventListener('DOMContentLoaded', (event) => {
             const params = new URLSearchParams(window.location.search);
             const subject = params.get('subject');
