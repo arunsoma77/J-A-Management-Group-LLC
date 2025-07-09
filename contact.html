@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body { font-family: 'Inter', sans-serif; }
         :root { --brand-blue: #4A76A8; --brand-blue-dark: #3e6490; }
@@ -17,28 +17,72 @@
         .hover\:bg-brand-blue-dark:hover { background-color: var(--brand-blue-dark); }
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
-        .popup {
+
+        /* Chatbot Styles */
+        #chat-icon {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background-color: var(--brand-blue);
             color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 60;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
-        .popup.show {
+        #chat-icon:hover {
+            transform: scale(1.1);
+        }
+        #chat-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 90%;
+            max-width: 400px;
+            height: 70vh;
+            max-height: 600px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 999;
+        }
+        #chat-widget.open {
+            transform: translateY(0) scale(1);
             opacity: 1;
-            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .chat-message {
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--brand-blue);
+            color: white;
+        }
+        .bot-message {
+            align-self: flex-start;
+            background-color: #f3f4f6;
+            color: #1f2937;
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Header & Navigation -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
@@ -63,6 +107,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="bg-brand-blue py-24 text-white text-center">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-5xl font-bold mb-6 font-headline">Let's Connect</h1>
@@ -70,6 +115,7 @@
         </div>
     </section>
 
+    <!-- Main Content -->
     <main class="py-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -101,9 +147,7 @@
             <div class="max-w-3xl mx-auto mt-16 bg-white p-8 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center font-headline">Send us a Message</h2>
                 <form action="https://api.web3forms.com/submit" method="POST">
-                    
                     <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
@@ -132,6 +176,7 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 py-8 text-center">
             <p class="font-semibold text-lg">J&A Management Group LLC</p>
@@ -139,22 +184,39 @@
         </div>
     </footer>
 
-    <div id="contact-popup" class="popup">
-        <p class="font-semibold mb-2">Need Assistance?</p>
-        <p class="text-sm">Feel free to drop us a message!</p>
+    <!-- CHATBOT HTML -->
+    <div id="chat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.821 8.821 0 01-4.083-.98L2 17l1.02-3.06A8.008 8.008 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.416 11.584A6.002 6.002 0 004 10c0-2.667 2.686-5 6-5s6 2.333 6 5-2.686 5-6 5a6.003 6.003 0 00-1.584-.243L4.416 11.584z" clip-rule="evenodd" />
+        </svg>
+    </div>
+
+    <div id="chat-widget" class="">
+        <!-- Chat Header -->
+        <div class="bg-brand-blue text-white p-4 flex justify-between items-center">
+            <!-- UPDATED CHATBOT TITLE -->
+            <h3 class="font-bold text-lg">Virtual Assistant</h3>
+            <button id="close-chat" class="text-white">&times;</button>
+        </div>
+        <!-- Messages -->
+        <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto">
+            <!-- Messages will be injected here -->
+        </div>
+        <!-- Input -->
+        <div class="p-4 border-t border-gray-200">
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                <button id="chat-send" class="bg-brand-blue text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-blue-dark transition-colors">Send</button>
+            </div>
+        </div>
     </div>
 
     <script>
+        // --- Standard Page Scripts ---
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        setTimeout(() => {
-            const popup = document.getElementById('contact-popup');
-            if(popup) {
-                popup.classList.add('show');
-            }
-        }, 3000);
         window.addEventListener('DOMContentLoaded', (event) => {
             const params = new URLSearchParams(window.location.search);
             const subject = params.get('subject');
@@ -165,6 +227,140 @@
                 }
             }
         });
+
+        // --- CHATBOT SCRIPT ---
+        const chatIcon = document.getElementById('chat-icon');
+        const chatWidget = document.getElementById('chat-widget');
+        const closeChatBtn = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendBtn = document.getElementById('chat-send');
+        
+        let chatHistory = [];
+        const apiKey = ""; // API key is handled by the environment
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        const systemPrompt = `You are a friendly and professional virtual assistant for J&A Management Group LLC. Your goal is to answer user questions about the company.
+        
+        Key Information about J&A Management Group:
+        - **What they do:** They are an administrative and support services firm that manages a diverse portfolio of businesses, including motels, restaurants, gas stations, liquor stores, and pest management.
+        - **Mission:** To provide a framework for sustainable growth and operational excellence, helping businesses become pillars in their communities.
+        - **Founder & CEO:** Jay Patel, who has over 15 years of experience.
+        - **Key Team Members:** Avinash Patel (COO), Talika Patel (CFO), Dhiraj Desai (Corporate Controller), Jasmine Patel (Human Resources), ArunKumar Soma (Business Analyst), Kiran Saripudi (IT Project Manager).
+        - **Contact Info:** Phone: 913-282-0434, Email: Jay@jaamg.com, Address: 6901 NW 83rd st, Kansas City, MO, 64152.
+        
+        Your instructions:
+        1.  Be polite, helpful, and concise.
+        2.  Use the information above to answer questions.
+        3.  If you don't know an answer, politely say "I don't have that information, but you can contact Jay Patel directly at Jay@jaamg.com for more details."
+        4.  Do not make up information.
+        5.  Keep responses relatively short and easy to read in a chat window.`;
+
+        function toggleChat() {
+            chatWidget.classList.toggle('open');
+            if (chatWidget.classList.contains('open') && chatMessages.children.length === 0) {
+                addBotMessage("Hello! How can I help you learn more about J&A Management Group today?");
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message p-3 rounded-lg ${sender === 'user' ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return messageDiv;
+        }
+
+        function addUserMessage(text) {
+            addMessage(text, 'user');
+            chatHistory.push({ role: "user", parts: [{ text }] });
+        }
+
+        function addBotMessage(text) {
+            const botMessageDiv = addMessage(text, 'bot');
+            chatHistory.push({ role: "model", parts: [{ text }] });
+            return botMessageDiv;
+        }
+        
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'bot-message p-3 rounded-lg';
+            typingDiv.innerHTML = '<span class="animate-pulse">Typing...</span>';
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        async function getBotResponse(prompt) {
+            showTypingIndicator();
+            chatSendBtn.disabled = true;
+
+            const payload = {
+                contents: [
+                    { role: "user", parts: [{ text: systemPrompt }] },
+                    { role: "model", parts: [{ text: "Understood. I am ready to assist." }] },
+                    ...chatHistory
+                ]
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const result = await response.json();
+                removeTypingIndicator();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const botText = result.candidates[0].content.parts[0].text;
+                    addBotMessage(botText);
+                } else {
+                    addBotMessage("I'm sorry, I encountered an issue. Please try again.");
+                }
+            } catch (error) {
+                console.error("Chatbot API error:", error);
+                removeTypingIndicator();
+                addBotMessage("I'm having trouble connecting right now. Please try again later.");
+            } finally {
+                chatSendBtn.disabled = false;
+                chatInput.focus();
+            }
+        }
+
+        async function handleSend() {
+            const userInput = chatInput.value.trim();
+            if (userInput) {
+                addUserMessage(userInput);
+                chatInput.value = '';
+                await getBotResponse(userInput);
+            }
+        }
+
+        chatIcon.addEventListener('click', toggleChat);
+        closeChatBtn.addEventListener('click', toggleChat);
+        chatSendBtn.addEventListener('click', handleSend);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSend();
+            }
+        });
+
     </script>
 </body>
 </html>
