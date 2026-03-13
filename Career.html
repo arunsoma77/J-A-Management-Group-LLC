@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - J&A Management Group LLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        :root { --brand-blue: #4A76A8; }
+        .bg-brand-blue { background-color: var(--brand-blue); }
+        .text-brand-blue { color: var(--brand-blue); }
+        .nav-active { color: #3b82f6 !important; font-weight: 600; }
+        .font-headline { font-family: 'Playfair Display', serif; }
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin: 0 auto; height: 300px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="Logo" class="h-10 w-auto">
+                <span class="text-xl font-bold text-gray-900">J&A Management Group</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue transition-colors">Home</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue transition-colors">About</a>
+                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue transition-colors">Our Portfolio</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue transition-colors">Our Team</a>
+                <a href="careers.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active transition-colors">Careers</a>
+                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><span class="text-2xl">&#9776;</span></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white border-t">
+            <a href="index.html" class="block py-2">Home</a>
+            <a href="about.html" class="block py-2">About</a>
+            <a href="portfolio.html" class="block py-2">Our Portfolio</a>
+            <a href="team.html" class="block py-2">Our Team</a>
+            <a href="careers.html" class="block py-2 nav-active">Careers</a>
+            <a href="contact.html" class="block py-2">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20 bg-slate-900 text-white text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-5xl font-bold font-headline mb-4">Grow With Us</h1>
+                <p class="text-xl text-gray-300">Join a team built on integrity and a legacy of excellence.</p>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white border-b"><div class="container mx-auto px-6"><div class="chart-container"><canvas id="growthChart"></canvas></div></div></section>
+
+        <section id="apply" class="py-20 bg-slate-100">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="bg-white p-12 rounded-3xl shadow-xl">
+                    <h2 class="text-3xl font-bold text-center mb-8 font-headline">Submit Your Interest</h2>
+                    <form id="applyForm" class="space-y-6">
+                        <input type="text" placeholder="Full Name" required class="w-full border p-4 rounded-xl">
+                        <input type="email" placeholder="Email" required class="w-full border p-4 rounded-xl">
+                        <textarea placeholder="Tell us about yourself..." class="w-full border p-4 rounded-xl" rows="4"></textarea>
+                        <button class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl">Send Application</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-8 text-center">
+        <p>© <span id="current-year"></span> J&A Management Group LLC</p>
+    </footer>
+    <script>
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, { type: 'line', data: { labels: ['2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'Portfolio Growth', data: [5, 12, 18, 26, 35], borderColor: '#4A76A8', tension: 0.4 }] }, options: { maintainAspectRatio: false }});
+        document.getElementById('mobile-menu-button').onclick = () => { document.getElementById('mobile-menu').classList.toggle('hidden'); };
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
