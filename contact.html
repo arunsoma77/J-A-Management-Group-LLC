@@ -94,6 +94,7 @@
                 <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">About</a>
                 <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Portfolio</a>
                 <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Team</a>
+                <a href="careers.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Careers</a>
                 <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Contact</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
@@ -103,6 +104,7 @@
             <a href="about.html" class="block nav-link hover:text-brand-blue py-2">About</a>
             <a href="portfolio.html" class="block nav-link hover:text-brand-blue py-2">Our Portfolio</a>
             <a href="team.html" class="block nav-link hover:text-brand-blue py-2">Our Team</a>
+            <a href="careers.html" class="block nav-link hover:text-brand-blue py-2">Careers</a>
             <a href="contact.html" class="block nav-link hover:text-brand-blue py-2 nav-active">Contact</a>
         </div>
     </header>
@@ -119,7 +121,7 @@
     <main class="py-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-white rounded-lg shadow-md p-8 text-center">
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-b-4 border-brand-blue">
                     <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
                         <i class="fas fa-map-marker-alt fa-2x"></i>
                     </div>
@@ -127,16 +129,16 @@
                     <p class="text-gray-600">6901 NW 83rd st</p>
                     <p class="text-gray-600">Kansas City, MO 64152</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-8 text-center">
-                    <div class="w-16 h-16 rounded-full bg-green-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-b-4 border-brand-blue">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
                         <i class="fas fa-phone fa-2x"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Contact</h3>
                     <p class="text-gray-600">Jay Patel</p>
                     <p class="text-gray-600">913-282-0434</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-8 text-center">
-                    <div class="w-16 h-16 rounded-full bg-yellow-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-b-4 border-brand-blue">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
                         <i class="fas fa-envelope fa-2x"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Email</h3>
@@ -194,7 +196,6 @@
     <div id="chat-widget" class="">
         <!-- Chat Header -->
         <div class="bg-brand-blue text-white p-4 flex justify-between items-center">
-            <!-- UPDATED CHATBOT TITLE -->
             <h3 class="font-bold text-lg">Virtual Assistant</h3>
             <button id="close-chat" class="text-white">&times;</button>
         </div>
@@ -240,26 +241,24 @@
         const apiKey = ""; // API key is handled by the environment
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
-        const systemPrompt = `You are a friendly and professional virtual assistant for J&A Management Group LLC. Your goal is to answer user questions about the company.
+        const systemPrompt = `You are a friendly and professional virtual assistant for J&A Management Group LLC. Your goal is to assist users with inquiries about our company.
         
-        Key Information about J&A Management Group:
-        - **What they do:** They are an administrative and support services firm that manages a diverse portfolio of businesses, including motels, restaurants, gas stations, liquor stores, and pest management.
-        - **Mission:** To provide a framework for sustainable growth and operational excellence, helping businesses become pillars in their communities.
-        - **Founder & CEO:** Jay Patel, who has over 15 years of experience.
-        - **Key Team Members:** Avinash Patel (COO), Talika Patel (CFO), Dhiraj Desai (Corporate Controller), Jasmine Patel (Human Resources), ArunKumar Soma (Business Analyst), Kiran Saripudi (IT Project Manager).
-        - **Contact Info:** Phone: 913-282-0434, Email: Jay@jaamg.com, Address: 6901 NW 83rd st, Kansas City, MO, 64152.
+        Key Information:
+        - We manage motels, restaurants, gas stations, liquor stores, and pest management.
+        - Founder & CEO: Jay Patel (14+ years experience).
+        - Key Team: Avinash Patel (COO), Talika Patel (CFO), Dhiraj Desai (Corporate Controller), Jasmine Patel (HR), ArunKumar Soma (Business Analyst), Kiran Saripudi (IT PM).
+        - Location: 6901 NW 83rd st, Kansas City, MO 64152.
+        - Contact: 913-282-0434 | Jay@jaamg.com.
         
-        Your instructions:
-        1.  Be polite, helpful, and concise.
-        2.  Use the information above to answer questions.
-        3.  If you don't know an answer, politely say "I don't have that information, but you can contact Jay Patel directly at Jay@jaamg.com for more details."
-        4.  Do not make up information.
-        5.  Keep responses relatively short and easy to read in a chat window.`;
+        Guidelines:
+        1. Be professional and concise.
+        2. If unknown, refer to Jay Patel at Jay@jaamg.com.
+        3. Do not invent details.`;
 
         function toggleChat() {
             chatWidget.classList.toggle('open');
             if (chatWidget.classList.contains('open') && chatMessages.children.length === 0) {
-                addBotMessage("Hello! How can I help you learn more about J&A Management Group today?");
+                addBotMessage("Hello! I'm the J&A Virtual Assistant. How can I help you today?");
             }
         }
 
@@ -278,9 +277,8 @@
         }
 
         function addBotMessage(text) {
-            const botMessageDiv = addMessage(text, 'bot');
+            addMessage(text, 'bot');
             chatHistory.push({ role: "model", parts: [{ text }] });
-            return botMessageDiv;
         }
         
         function showTypingIndicator() {
@@ -294,19 +292,17 @@
 
         function removeTypingIndicator() {
             const indicator = document.getElementById('typing-indicator');
-            if (indicator) {
-                indicator.remove();
-            }
+            if (indicator) indicator.remove();
         }
 
-        async function getBotResponse(prompt) {
+        async function getBotResponse() {
             showTypingIndicator();
             chatSendBtn.disabled = true;
 
             const payload = {
                 contents: [
                     { role: "user", parts: [{ text: systemPrompt }] },
-                    { role: "model", parts: [{ text: "Understood. I am ready to assist." }] },
+                    { role: "model", parts: [{ text: "Understood." }] },
                     ...chatHistory
                 ]
             };
@@ -318,25 +314,16 @@
                     body: JSON.stringify(payload)
                 });
 
-                if (!response.ok) {
-                    throw new Error(`API request failed with status ${response.status}`);
-                }
+                if (!response.ok) throw new Error("API Failure");
 
                 const result = await response.json();
                 removeTypingIndicator();
 
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const botText = result.candidates[0].content.parts[0].text;
-                    addBotMessage(botText);
-                } else {
-                    addBotMessage("I'm sorry, I encountered an issue. Please try again.");
-                }
+                const botText = result.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I'm having trouble responding.";
+                addBotMessage(botText);
             } catch (error) {
-                console.error("Chatbot API error:", error);
                 removeTypingIndicator();
-                addBotMessage("I'm having trouble connecting right now. Please try again later.");
+                addBotMessage("Connecting issue. Please try again later or contact us directly.");
             } finally {
                 chatSendBtn.disabled = false;
                 chatInput.focus();
@@ -348,19 +335,14 @@
             if (userInput) {
                 addUserMessage(userInput);
                 chatInput.value = '';
-                await getBotResponse(userInput);
+                await getBotResponse();
             }
         }
 
         chatIcon.addEventListener('click', toggleChat);
         closeChatBtn.addEventListener('click', toggleChat);
         chatSendBtn.addEventListener('click', handleSend);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleSend();
-            }
-        });
-
+        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
     </script>
 </body>
 </html>
