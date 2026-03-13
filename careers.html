@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers - J&A Management Group LLC</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap)" rel="stylesheet">
-    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
+    <!-- The line below is what provides all the styling. It MUST be here. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
         :root { --brand-blue: #4A76A8; }
@@ -18,10 +21,11 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
     <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
-                <img src="[https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg](https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg)" alt="Logo" class="h-10 w-auto">
+                <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="Logo" class="h-10 w-auto">
                 <span class="text-xl font-bold text-gray-900">J&A Management Group</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
@@ -32,7 +36,9 @@
                 <a href="careers.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active transition-colors">Careers</a>
                 <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue transition-colors">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><span class="text-2xl">&#9776;</span></button>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white border-t">
             <a href="index.html" class="block py-2">Home</a>
@@ -64,25 +70,46 @@
                 <div class="bg-white p-12 rounded-3xl shadow-xl">
                     <h2 class="text-3xl font-bold text-center mb-4 font-headline uppercase">Interested?</h2>
                     <p class="text-center text-gray-600 mb-8">Submit your interest and we will contact you when roles matching your expertise open up.</p>
-                    <form id="applyForm" class="space-y-6">
-                        <input type="text" placeholder="Full Name" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none">
-                        <input type="email" placeholder="Email Address" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none">
-                        <textarea placeholder="Tell us about your background..." class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none" rows="4"></textarea>
-                        <button class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700 transition-all uppercase">Submit Application</button>
+                    <form id="applyForm" class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
+                        <input type="text" name="name" placeholder="Full Name" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
+                        <input type="email" name="email" placeholder="Email Address" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
+                        <textarea name="message" placeholder="Tell us about your background..." class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50" rows="4"></textarea>
+                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700 transition-all uppercase">Submit Application</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-900 text-white py-8 text-center">
-        <p>© <span id="current-year"></span> J&A Management Group LLC</p>
+    <footer class="bg-slate-900 text-white py-12 text-center">
+        <p class="font-semibold text-xl">J&A Management Group LLC</p>
+        <p class="mt-2 text-gray-500">© <span id="current-year"></span> All Rights Reserved.</p>
     </footer>
+
     <script>
-        const ctx = document.getElementById('growthChart').getContext('2d');
-        new Chart(ctx, { type: 'line', data: { labels: ['2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'Properties Managed', data: [5, 12, 18, 26, 35], borderColor: '#4A76A8', tension: 0.4, fill: true, backgroundColor: 'rgba(74, 118, 168, 0.1)' }] }, options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }});
         document.getElementById('mobile-menu-button').onclick = () => { document.getElementById('mobile-menu').classList.toggle('hidden'); };
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, { 
+            type: 'line', 
+            data: { 
+                labels: ['2021', '2022', '2023', '2024', '2025'], 
+                datasets: [{ 
+                    label: 'Properties Managed', 
+                    data: [5, 12, 18, 26, 35], 
+                    borderColor: '#4A76A8', 
+                    tension: 0.4, 
+                    fill: true, 
+                    backgroundColor: 'rgba(74, 118, 168, 0.1)' 
+                }] 
+            }, 
+            options: { 
+                maintainAspectRatio: false, 
+                plugins: { legend: { display: false } } 
+            }
+        });
     </script>
 </body>
 </html>
