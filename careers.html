@@ -51,10 +51,11 @@
     </header>
 
     <main>
-        <section class="py-24 bg-slate-900 text-white text-center">
+        <!-- Background color updated to bg-brand-blue to match other pages -->
+        <section class="py-24 bg-brand-blue text-white text-center">
             <div class="container mx-auto px-6">
                 <h1 class="text-5xl font-bold font-headline mb-4 uppercase tracking-tighter">Careers</h1>
-                <p class="text-xl text-gray-300">Join a team built on integrity and a legacy of excellence.</p>
+                <p class="text-xl text-gray-100">Join a team built on integrity and a legacy of excellence.</p>
             </div>
         </section>
 
@@ -67,7 +68,7 @@
 
         <section id="apply" class="py-20 bg-slate-100">
             <div class="container mx-auto px-6 max-w-3xl">
-                <div class="bg-white p-12 rounded-3xl shadow-xl">
+                <div class="bg-white p-12 rounded-3xl shadow-xl border-t-4 border-brand-blue">
                     <h2 class="text-3xl font-bold text-center mb-4 font-headline uppercase">Interested?</h2>
                     <p class="text-center text-gray-600 mb-8">Submit your interest and we will contact you when roles matching your expertise open up.</p>
                     <form id="applyForm" class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
@@ -75,7 +76,7 @@
                         <input type="text" name="name" placeholder="Full Name" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
                         <input type="email" name="email" placeholder="Email Address" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
                         <textarea name="message" placeholder="Tell us about your background..." class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50" rows="4"></textarea>
-                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700 transition-all uppercase">Submit Application</button>
+                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl shadow-lg hover:bg-brand-blue-dark transition-all uppercase">Submit Application</button>
                     </form>
                 </div>
             </div>
