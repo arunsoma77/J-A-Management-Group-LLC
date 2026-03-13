@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
         body { font-family: 'Inter', sans-serif; }
         :root { --brand-blue: #4A76A8; --brand-blue-dark: #3e6490; }
@@ -18,11 +18,11 @@
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
 
-        /* Chatbot Styles */
+        /* Virtual Assistant Styles */
         #chat-icon {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background-color: var(--brand-blue);
             color: white;
             width: 60px;
@@ -32,317 +32,262 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 1000;
+            transition: transform 0.3s ease;
         }
-        #chat-icon:hover {
-            transform: scale(1.1);
-        }
+        #chat-icon:hover { transform: scale(1.1); }
         #chat-widget {
             position: fixed;
             bottom: 100px;
-            right: 20px;
+            right: 25px;
             width: 90%;
-            max-width: 400px;
+            max-width: 380px;
             height: 70vh;
-            max-height: 600px;
+            max-height: 550px;
             background-color: white;
             border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transform: translateY(20px) scale(0.95);
             opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
             pointer-events: none;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
             z-index: 999;
         }
-        #chat-widget.open {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .chat-message {
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-        .user-message {
-            align-self: flex-end;
-            background-color: var(--brand-blue);
-            color: white;
-        }
-        .bot-message {
-            align-self: flex-start;
-            background-color: #f3f4f6;
-            color: #1f2937;
-        }
+        #chat-widget.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .chat-msg { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.4; margin-bottom: 10px; }
+        .user-msg { align-self: flex-end; background-color: var(--brand-blue); color: white; border-bottom-right-radius: 4px; }
+        .bot-msg { align-self: flex-start; background-color: #f3f4f6; color: #1f2937; border-bottom-left-radius: 4px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
-                <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="J&A Management Group LLC Logo" class="h-10 w-auto">
+                <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="Logo" class="h-10 w-auto">
                 <span class="text-xl font-bold text-gray-900">J&A Management Group</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Home</a>
-                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">About</a>
-                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Portfolio</a>
-                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Our Team</a>
-                <a href="careers.html" class="nav-link text-gray-600 hover:text-brand-blue inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Careers</a>
-                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active inline-block transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Contact</a>
+                <a href="index.html" class="nav-link text-gray-600 hover:text-brand-blue transition-all">Home</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-brand-blue transition-all">About</a>
+                <a href="portfolio.html" class="nav-link text-gray-600 hover:text-brand-blue transition-all">Our Portfolio</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-brand-blue transition-all">Our Team</a>
+                <a href="careers.html" class="nav-link text-gray-600 hover:text-brand-blue transition-all">Careers</a>
+                <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active transition-all">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
-            <a href="index.html" class="block nav-link hover:text-brand-blue py-2">Home</a>
-            <a href="about.html" class="block nav-link hover:text-brand-blue py-2">About</a>
-            <a href="portfolio.html" class="block nav-link hover:text-brand-blue py-2">Our Portfolio</a>
-            <a href="team.html" class="block nav-link hover:text-brand-blue py-2">Our Team</a>
-            <a href="careers.html" class="block nav-link hover:text-brand-blue py-2">Careers</a>
-            <a href="contact.html" class="block nav-link hover:text-brand-blue py-2 nav-active">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white border-t">
+            <a href="index.html" class="block py-2">Home</a>
+            <a href="about.html" class="block py-2">About</a>
+            <a href="portfolio.html" class="block py-2">Our Portfolio</a>
+            <a href="team.html" class="block py-2">Our Team</a>
+            <a href="careers.html" class="block py-2">Careers</a>
+            <a href="contact.html" class="block py-2 nav-active">Contact</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-brand-blue py-24 text-white text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-headline">Let's Connect</h1>
-            <p class="text-lg md:text-xl max-w-xl mx-auto">We're here to help your business thrive. Reach out to us today for partnerships, inquiries, and more.</p>
-        </div>
-    </section>
+    <main>
+        <section class="bg-brand-blue py-20 text-white text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 font-headline uppercase">Contact Us</h1>
+                <p class="text-lg opacity-90">Partner with J&A Management Group for strategic growth.</p>
+            </div>
+        </section>
 
-    <!-- Main Content -->
-    <main class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-white rounded-lg shadow-md p-8 text-center border-b-4 border-brand-blue">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
-                        <i class="fas fa-map-marker-alt fa-2x"></i>
+        <section class="py-16 container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Our Office Card with Hover Effect -->
+                <div class="bg-white p-8 rounded-2xl shadow-md text-center border-b-4 border-brand-blue transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Our Office</h3>
-                    <p class="text-gray-600">6901 NW 83rd st</p>
-                    <p class="text-gray-600">Kansas City, MO 64152</p>
+                    <h3 class="font-bold text-gray-900 mb-1">Our Office</h3>
+                    <p class="text-gray-600 text-sm">6901 NW 83rd st<br>Kansas City, MO 64152</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-8 text-center border-b-4 border-brand-blue">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
-                        <i class="fas fa-phone fa-2x"></i>
+                <!-- Call Us Card with Hover Effect -->
+                <div class="bg-white p-8 rounded-2xl shadow-md text-center border-b-4 border-brand-blue transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone fa-lg"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Contact</h3>
-                    <p class="text-gray-600">Jay Patel</p>
-                    <p class="text-gray-600">913-282-0434</p>
+                    <h3 class="font-bold text-gray-900 mb-1">Call Us</h3>
+                    <p class="text-gray-600 text-sm">Jay Patel<br>913-282-0434</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-8 text-center border-b-4 border-brand-blue">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 text-brand-blue mx-auto flex items-center justify-center mb-4">
-                        <i class="fas fa-envelope fa-2x"></i>
+                <!-- Email Us Card with Hover Effect -->
+                <div class="bg-white p-8 rounded-2xl shadow-md text-center border-b-4 border-brand-blue transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope fa-lg"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Direct Email</h3>
-                    <p class="text-gray-600">Jay@jaamg.com</p>
+                    <h3 class="font-bold text-gray-900 mb-1">Email Us</h3>
+                    <p class="text-gray-600 text-sm">Inquiries<br>Jay@jaamg.com</p>
                 </div>
             </div>
 
-            <div class="max-w-3xl mx-auto mt-16 bg-white p-8 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center font-headline">Send us a Message</h2>
-                <form action="https://api.web3forms.com/submit" method="POST">
+            <div class="max-w-3xl mx-auto bg-white p-10 rounded-3xl shadow-xl border-t-4 border-brand-blue">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center font-headline uppercase tracking-wide">Send us a Message</h2>
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                     <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-2 bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-brand-blue focus:border-brand-blue">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-2 bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-brand-blue focus:border-brand-blue">
-                        </div>
+                        <input type="text" name="name" placeholder="Name" required class="w-full border p-3 rounded-lg bg-gray-50 outline-none focus:ring-2 focus:ring-brand-blue">
+                        <input type="email" name="email" placeholder="Email" required class="w-full border p-3 rounded-lg bg-gray-50 outline-none focus:ring-2 focus:ring-brand-blue">
                     </div>
-                    <div class="mt-6">
-                        <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-                        <input type="text" name="subject" id="subject" required class="mt-1 block w-full px-4 py-2 bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-brand-blue focus:border-brand-blue">
-                    </div>
-                    <div class="mt-6">
-                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                        <textarea name="message" id="message" rows="5" required class="mt-1 block w-full px-4 py-2 bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-brand-blue focus:border-brand-blue"></textarea>
-                    </div>
-                    <div class="mt-8 text-center">
-                        <button type="submit" class="bg-brand-blue text-white font-semibold px-10 py-3 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-opacity-50">
-                            Send Message
-                        </button>
-                    </div>
+                    <input type="text" name="subject" id="subject" placeholder="Subject" required class="w-full border p-3 rounded-lg bg-gray-50 outline-none focus:ring-2 focus:ring-brand-blue">
+                    <textarea name="message" placeholder="Message" rows="5" required class="w-full border p-3 rounded-lg bg-gray-50 outline-none focus:ring-2 focus:ring-brand-blue"></textarea>
+                    <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg shadow-md hover:bg-brand-blue-dark transition-all uppercase tracking-widest">Send Message</button>
                 </form>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p class="font-semibold text-lg">J&A Management Group LLC</p>
-            <p class="mt-2 text-gray-400">© <span id="current-year"></span> All Rights Reserved.</p>
-        </div>
+    <footer class="bg-slate-900 text-white py-12 text-center">
+        <p class="font-bold text-xl mb-2">J&A Management Group LLC</p>
+        <p class="text-gray-500 text-sm">© <span id="current-year"></span> All Rights Reserved.</p>
     </footer>
 
-    <!-- CHATBOT HTML -->
-    <div id="chat-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.821 8.821 0 01-4.083-.98L2 17l1.02-3.06A8.008 8.008 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.416 11.584A6.002 6.002 0 004 10c0-2.667 2.686-5 6-5s6 2.333 6 5-2.686 5-6 5a6.003 6.003 0 00-1.584-.243L4.416 11.584z" clip-rule="evenodd" />
-        </svg>
-    </div>
-
-    <div id="chat-widget" class="">
-        <!-- Chat Header -->
-        <div class="bg-brand-blue text-white p-4 flex justify-between items-center">
-            <h3 class="font-bold text-lg">Virtual Assistant</h3>
-            <button id="close-chat" class="text-white">&times;</button>
-        </div>
-        <!-- Messages -->
-        <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto">
-            <!-- Messages will be injected here -->
-        </div>
-        <!-- Input -->
-        <div class="p-4 border-t border-gray-200">
-            <div class="flex space-x-2">
-                <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-blue">
-                <button id="chat-send" class="bg-brand-blue text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-blue-dark transition-colors">Send</button>
+    <!-- Assistant UI -->
+    <div id="chat-icon"><i class="fas fa-comment-dots fa-2x"></i></div>
+    <div id="chat-widget">
+        <div class="bg-brand-blue text-white p-4 flex justify-between items-center shadow-md">
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <h3 class="font-bold">Virtual Assistant</h3>
             </div>
+            <button id="close-chat" class="text-white hover:text-gray-200 text-2xl font-bold">&times;</button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-5 space-y-4 overflow-y-auto bg-gray-50 flex flex-col">
+            <!-- Messages injected here -->
+        </div>
+        <div class="p-4 border-t bg-white flex space-x-2">
+            <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 px-4 py-2 bg-gray-100 rounded-full border-none focus:ring-2 focus:ring-brand-blue outline-none">
+            <button id="chat-send" class="bg-brand-blue text-white px-5 py-2 rounded-full font-bold hover:bg-brand-blue-dark transition-all">Send</button>
         </div>
     </div>
 
     <script>
-        // --- Standard Page Scripts ---
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        // Standard Site Scripts
+        document.getElementById('mobile-menu-button').onclick = () => { document.getElementById('mobile-menu').classList.toggle('hidden'); };
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        window.addEventListener('DOMContentLoaded', (event) => {
+        
+        // Subject Auto-fill
+        window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const subject = params.get('subject');
             if (subject) {
-                const subjectField = document.getElementById('subject');
-                if (subjectField) {
-                    subjectField.value = decodeURIComponent(subject);
-                }
+                const field = document.getElementById('subject');
+                if (field) field.value = decodeURIComponent(subject);
             }
         });
 
-        // --- CHATBOT SCRIPT ---
+        // --- VIRTUAL ASSISTANT LOGIC ---
         const chatIcon = document.getElementById('chat-icon');
         const chatWidget = document.getElementById('chat-widget');
-        const closeChatBtn = document.getElementById('close-chat');
+        const closeBtn = document.getElementById('close-chat');
         const chatMessages = document.getElementById('chat-messages');
         const chatInput = document.getElementById('chat-input');
-        const chatSendBtn = document.getElementById('chat-send');
-        
+        const chatSend = document.getElementById('chat-send');
+
+        const apiKey = ""; // Handled by environment
+        const model = "gemini-2.5-flash-preview-09-2025";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
         let chatHistory = [];
-        const apiKey = ""; // API key is handled by the environment
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-        const systemPrompt = `You are a friendly and professional virtual assistant for J&A Management Group LLC. Your goal is to assist users with inquiries about our company.
-        
-        Key Information:
-        - We manage motels, restaurants, gas stations, liquor stores, and pest management.
-        - Founder & CEO: Jay Patel (14+ years experience).
-        - Key Team: Avinash Patel (COO), Talika Patel (CFO), Dhiraj Desai (Corporate Controller), Jasmine Patel (HR), ArunKumar Soma (Business Analyst), Kiran Saripudi (IT PM).
+        const systemPrompt = `You are the professional Virtual Assistant for J&A Management Group LLC. 
+        Company Details:
+        - Founder/CEO: Jay Patel (14+ years accounting/auditing experience).
+        - Services: Strategic management for Motels, Restaurants (Lennys Grill & Subs, Goodcents), C-Stores, Gas Stations, Liquor Stores, and Pest Control.
         - Location: 6901 NW 83rd st, Kansas City, MO 64152.
-        - Contact: 913-282-0434 | Jay@jaamg.com.
-        
-        Guidelines:
-        1. Be professional and concise.
-        2. If unknown, refer to Jay Patel at Jay@jaamg.com.
-        3. Do not invent details.`;
+        - Contact: 913-282-0434 or Jay@jaamg.com.
+        - Tone: Helpful, professional, and concise. 
+        - Instructions: If you don't know an answer, direct users to email Jay@jaamg.com. Do not invent company facts.`;
 
-        function toggleChat() {
+        chatIcon.onclick = () => {
             chatWidget.classList.toggle('open');
-            if (chatWidget.classList.contains('open') && chatMessages.children.length === 0) {
-                addBotMessage("Hello! I'm the J&A Virtual Assistant. How can I help you today?");
+            if (chatMessages.children.length === 0) {
+                addMessage("Hello! I'm the J&A Virtual Assistant. How can I help you today?", "bot");
             }
-        }
+        };
+
+        closeBtn.onclick = () => chatWidget.classList.remove('open');
 
         function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message p-3 rounded-lg ${sender === 'user' ? 'user-message' : 'bot-message'}`;
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return messageDiv;
-        }
-
-        function addUserMessage(text) {
-            addMessage(text, 'user');
-            chatHistory.push({ role: "user", parts: [{ text }] });
-        }
-
-        function addBotMessage(text) {
-            addMessage(text, 'bot');
-            chatHistory.push({ role: "model", parts: [{ text }] });
-        }
-        
-        function showTypingIndicator() {
-            const typingDiv = document.createElement('div');
-            typingDiv.id = 'typing-indicator';
-            typingDiv.className = 'bot-message p-3 rounded-lg';
-            typingDiv.innerHTML = '<span class="animate-pulse">Typing...</span>';
-            chatMessages.appendChild(typingDiv);
+            const div = document.createElement('div');
+            div.className = `chat-msg ${sender === 'user' ? 'user-msg' : 'bot-msg'}`;
+            div.textContent = text;
+            chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function removeTypingIndicator() {
-            const indicator = document.getElementById('typing-indicator');
-            if (indicator) indicator.remove();
-        }
-
-        async function getBotResponse() {
-            showTypingIndicator();
-            chatSendBtn.disabled = true;
+        // --- FETCH WITH EXPONENTIAL BACKOFF (MANDATORY) ---
+        async function fetchAssistantResponse(userInput) {
+            chatSend.disabled = true;
+            const typing = document.createElement('div');
+            typing.className = 'bot-msg chat-msg italic text-gray-400 text-sm';
+            typing.textContent = "Assistant is typing...";
+            chatMessages.appendChild(typing);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
 
             const payload = {
-                contents: [
-                    { role: "user", parts: [{ text: systemPrompt }] },
-                    { role: "model", parts: [{ text: "Understood." }] },
-                    ...chatHistory
-                ]
+                contents: chatHistory,
+                systemInstruction: { parts: [{ text: systemPrompt }] }
             };
 
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            let lastError;
 
-                if (!response.ok) throw new Error("API Failure");
+            for (let i = 0; i <= delays.length; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
 
-                const result = await response.json();
-                removeTypingIndicator();
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-                const botText = result.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I'm having trouble responding.";
-                addBotMessage(botText);
-            } catch (error) {
-                removeTypingIndicator();
-                addBotMessage("Connecting issue. Please try again later or contact us directly.");
-            } finally {
-                chatSendBtn.disabled = false;
-                chatInput.focus();
+                    const data = await response.json();
+                    const botText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    typing.remove();
+                    if (botText) {
+                        addMessage(botText, "bot");
+                        chatHistory.push({ role: "model", parts: [{ text: botText }] });
+                    } else {
+                        addMessage("I'm sorry, I'm having trouble processing that right now.", "bot");
+                    }
+                    chatSend.disabled = false;
+                    return;
+
+                } catch (error) {
+                    lastError = error;
+                    if (i < delays.length) {
+                        await new Promise(resolve => setTimeout(resolve, delays[i]));
+                    }
+                }
             }
+
+            // If all retries fail
+            typing.remove();
+            addMessage("I'm having trouble connecting right now. Please try again or contact us directly at Jay@jaamg.com.", "bot");
+            chatSend.disabled = false;
         }
 
-        async function handleSend() {
-            const userInput = chatInput.value.trim();
-            if (userInput) {
-                addUserMessage(userInput);
-                chatInput.value = '';
-                await getBotResponse();
-            }
+        async function sendMessage() {
+            const val = chatInput.value.trim();
+            if (!val || chatSend.disabled) return;
+            
+            addMessage(val, "user");
+            chatHistory.push({ role: "user", parts: [{ text: val }] });
+            chatInput.value = "";
+            
+            await fetchAssistantResponse(val);
         }
 
-        chatIcon.addEventListener('click', toggleChat);
-        closeChatBtn.addEventListener('click', toggleChat);
-        chatSendBtn.addEventListener('click', handleSend);
-        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+        chatSend.onclick = sendMessage;
+        chatInput.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
     </script>
 </body>
 </html>
