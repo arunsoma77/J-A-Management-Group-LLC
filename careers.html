@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers - J&A Management Group LLC</title>
-    <!-- The line below is what provides all the styling. It MUST be here. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
         body { font-family: 'Inter', sans-serif; }
-        :root { --brand-blue: #4A76A8; }
+        :root { --brand-blue: #4A76A8; --brand-blue-dark: #3e6490; }
         .bg-brand-blue { background-color: var(--brand-blue); }
         .text-brand-blue { color: var(--brand-blue); }
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
         .chart-container { position: relative; width: 100%; max-width: 800px; margin: 0 auto; height: 300px; }
+        .job-card:hover .apply-arrow { transform: translateX(5px); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -40,7 +41,7 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white border-t">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white border-t text-center">
             <a href="index.html" class="block py-2">Home</a>
             <a href="about.html" class="block py-2">About</a>
             <a href="portfolio.html" class="block py-2">Our Portfolio</a>
@@ -51,7 +52,7 @@
     </header>
 
     <main>
-        <!-- Background color updated to bg-brand-blue to match other pages -->
+        <!-- Hero Section -->
         <section class="py-24 bg-brand-blue text-white text-center">
             <div class="container mx-auto px-6">
                 <h1 class="text-5xl font-bold font-headline mb-4 uppercase tracking-tighter">Careers</h1>
@@ -59,24 +60,152 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white border-b">
+        <!-- Current Openings Section -->
+        <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-center text-3xl font-bold font-headline mb-10">Our Strategic Growth</h2>
-                <div class="chart-container"><canvas id="growthChart"></canvas></div>
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold font-headline uppercase">Current Openings</h2>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We are looking for passionate individuals to help us manage and scale our diverse business portfolio.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- SRE Role -->
+                    <div class="job-card border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all bg-gray-50 flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase">Technology</span>
+                            <i class="fas fa-cloud text-brand-blue opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Site Reliability Engineer (SRE)</h3>
+                        <p class="text-gray-600 text-sm mb-6">Responsible for building and maintaining scalable cloud infrastructure, automation pipelines, and reliable deployment environments supporting distributed business platforms.</p>
+                        <div class="space-y-3 mb-8 flex-grow">
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Design and implement Infrastructure as Code (IaC) using Terraform or CloudFormation.</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Optimize system performance and automate recovery processes for zero downtime.</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Manage CI/CD pipelines to ensure rapid and secure software deployment.</span>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: SRE'" class="inline-flex items-center text-brand-blue font-bold uppercase text-sm group">
+                            Apply Now <i class="fas fa-arrow-right ml-2 apply-arrow transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- IT Infrastructure Role -->
+                    <div class="job-card border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all bg-gray-50 flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase">Systems</span>
+                            <i class="fas fa-server text-brand-blue opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">IT Infrastructure & Systems Engineer</h3>
+                        <p class="text-gray-600 text-sm mb-6">Responsible for managing enterprise infrastructure, network systems, and technology operations supporting distributed retail and hospitality environments.</p>
+                        <div class="space-y-3 mb-8 flex-grow">
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Administer Windows/Linux servers, Active Directory, and O365 environments.</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Manage multi-site VPN networks, firewalls, and POS system connectivity.</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Oversee data security, backups, and disaster recovery strategies for all units.</span>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: IT Systems Engineer'" class="inline-flex items-center text-brand-blue font-bold uppercase text-sm group">
+                            Apply Now <i class="fas fa-arrow-right ml-2 apply-arrow transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Hotel Manager Role -->
+                    <div class="job-card border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all bg-gray-50 flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase">Hospitality</span>
+                            <i class="fas fa-hotel text-brand-blue opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Hotel Manager</h3>
+                        <p class="text-gray-600 text-sm mb-6">Oversee daily operations for one of our prime hospitality locations, ensuring brand standards and guest satisfaction are consistently met.</p>
+                        <div class="space-y-3 mb-8 flex-grow">
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Manage P&L, budgeting, and financial reporting for the property.</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Lead and mentor staff to deliver exceptional guest experiences.</span>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Hotel Manager'" class="inline-flex items-center text-brand-blue font-bold uppercase text-sm group">
+                            Apply Now <i class="fas fa-arrow-right ml-2 apply-arrow transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Head of Housekeeping Role -->
+                    <div class="job-card border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all bg-gray-50 flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase">Operations</span>
+                            <i class="fas fa-broom text-brand-blue opacity-20 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Head of Housekeeping</h3>
+                        <p class="text-gray-600 text-sm mb-6">Coordinate all housekeeping functions to maintain our rigorous standards of cleanliness and efficiency across guest rooms and public areas.</p>
+                        <div class="space-y-3 mb-8 flex-grow">
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Schedule and supervise cleaning staff and conduct quality audits.</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-brand-blue mt-1 mr-2"></i>
+                                <span>Manage inventory of cleaning supplies and linens to control costs.</span>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Head of Housekeeping'" class="inline-flex items-center text-brand-blue font-bold uppercase text-sm group">
+                            Apply Now <i class="fas fa-arrow-right ml-2 apply-arrow transition-transform"></i>
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </section>
 
-        <section id="apply" class="py-20 bg-slate-100">
+        <!-- Strategic Growth Chart -->
+        <section class="py-16 bg-white border-y border-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold font-headline mb-10 uppercase">Our Strategic Growth</h2>
+                <div class="chart-container"><canvas id="growthChart"></canvas></div>
+                <p class="text-center text-gray-500 text-sm mt-8 max-w-xl mx-auto italic">As we expand our portfolio, we seek leaders who want to grow alongside us.</p>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section id="apply" class="py-20 bg-slate-50">
             <div class="container mx-auto px-6 max-w-3xl">
                 <div class="bg-white p-12 rounded-3xl shadow-xl border-t-4 border-brand-blue">
-                    <h2 class="text-3xl font-bold text-center mb-4 font-headline uppercase">Interested?</h2>
-                    <p class="text-center text-gray-600 mb-8">Submit your interest and we will contact you when roles matching your expertise open up.</p>
+                    <h2 class="text-3xl font-bold text-center mb-4 font-headline uppercase">Join the Team</h2>
+                    <p class="text-center text-gray-600 mb-8">Submit your interest below and attach your background details. We'll reach out to schedule an interview.</p>
                     <form id="applyForm" class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
-                        <input type="text" name="name" placeholder="Full Name" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
-                        <input type="email" name="email" placeholder="Email Address" required class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
-                        <textarea name="message" placeholder="Tell us about your background..." class="w-full border p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50" rows="4"></textarea>
-                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl shadow-lg hover:bg-brand-blue-dark transition-all uppercase">Submit Application</button>
+                        <!-- Redirect after submission -->
+                        <input type="hidden" name="from_name" value="J&A Careers Page">
+                        <input type="hidden" name="subject" id="subject_interest" value="New Employment Interest">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Full Name" required class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
+                            <input type="email" name="email" placeholder="Email Address" required class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50">
+                        </div>
+                        <textarea name="message" placeholder="Tell us about your background and why you're a good fit..." required class="w-full border border-gray-200 p-4 rounded-xl focus:ring-2 focus:ring-brand-blue outline-none bg-gray-50" rows="5"></textarea>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-brand-blue text-white font-bold px-12 py-4 rounded-xl shadow-lg hover:bg-brand-blue-dark transition-all uppercase tracking-widest active:scale-95">
+                                Submit Application
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -89,9 +218,15 @@
     </footer>
 
     <script>
-        document.getElementById('mobile-menu-button').onclick = () => { document.getElementById('mobile-menu').classList.toggle('hidden'); };
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').onclick = () => { 
+            document.getElementById('mobile-menu').classList.toggle('hidden'); 
+        };
+        
+        // Year update
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
+        // Growth Chart Initialization
         const ctx = document.getElementById('growthChart').getContext('2d');
         new Chart(ctx, { 
             type: 'line', 
@@ -101,14 +236,33 @@
                     label: 'Properties Managed', 
                     data: [5, 12, 18, 26, 35], 
                     borderColor: '#4A76A8', 
+                    backgroundColor: 'rgba(74, 118, 168, 0.1)',
                     tension: 0.4, 
-                    fill: true, 
-                    backgroundColor: 'rgba(74, 118, 168, 0.1)' 
+                    fill: true,
+                    pointBackgroundColor: '#4A76A8',
+                    pointBorderColor: '#fff',
+                    pointHoverRadius: 6
                 }] 
             }, 
             options: { 
                 maintainAspectRatio: false, 
-                plugins: { legend: { display: false } } 
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1e293b',
+                        titleFont: { family: 'Inter', weight: 'bold' },
+                        bodyFont: { family: 'Inter' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#f3f4f6' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
             }
         });
     </script>
