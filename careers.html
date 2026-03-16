@@ -18,16 +18,17 @@
         .nav-active { color: #3b82f6 !important; font-weight: 600; }
         .font-headline { font-family: 'Playfair Display', serif; }
 
-        /* Job Row Hover Effect */
-        .job-row {
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+        /* Premium Card Hover Effect */
+        .job-card {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
-        .job-row:hover {
-            background-color: #ffffff;
-            border-left-color: var(--brand-blue);
-            transform: translateX(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--brand-blue);
         }
 
         /* Timeline Connector */
@@ -48,8 +49,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Standard Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <!-- Header & Navigation: Styled to match Home/About/Contact perfectly -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm border-b border-gray-100">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
                 <img src="https://i.ibb.co/qF31y2vh/J-A-Management-Group-LLC-Logo.jpg" alt="Logo" class="h-10 w-auto">
@@ -77,7 +78,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="bg-brand-blue py-24 text-white text-center">
+        <section class="bg-brand-blue py-20 text-white text-center">
             <div class="container mx-auto px-6">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 font-headline uppercase tracking-tight">Join Our Legacy</h1>
                 <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">Build your future with a management group that values integrity, technical innovation, and hospitality excellence.</p>
@@ -88,144 +89,126 @@
         <section class="py-16 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold font-headline uppercase mb-4">Why J&A?</h2>
-                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">We don't just fill roles; we develop leaders. Our multi-industry portfolio offers a unique stability and a variety of career paths.</p>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">We don't just fill roles; we develop leaders. Our multi-industry portfolio offers unique stability and a variety of career paths.</p>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="p-6">
                         <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-rocket fa-lg"></i></div>
-                        <h4 class="font-bold mb-2 text-base">Growth Paths</h4>
-                        <p class="text-sm text-gray-500">Fast-track leadership roles across our 35+ properties.</p>
+                        <h4 class="font-bold mb-2 text-base uppercase tracking-wide">Growth Paths</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Fast-track leadership roles across our 35+ managed properties.</p>
                     </div>
                     <div class="p-6">
                         <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-shield-alt fa-lg"></i></div>
-                        <h4 class="font-bold mb-2 text-base">True Stability</h4>
-                        <p class="text-sm text-gray-500">A family-owned firm with a robust, multi-sector foundation.</p>
+                        <h4 class="font-bold mb-2 text-base uppercase tracking-wide">True Stability</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">A family-owned firm with a robust, multi-sector financial foundation.</p>
                     </div>
                     <div class="p-6">
                         <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-laptop-code fa-lg"></i></div>
-                        <h4 class="font-bold mb-2 text-base">Modern Tech</h4>
-                        <p class="text-sm text-gray-500">Cloud-first infrastructure to manage retail and hospitality.</p>
+                        <h4 class="font-bold mb-2 text-base uppercase tracking-wide">Modern Tech</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Leveraging cloud-first infrastructure to power retail and hospitality.</p>
                     </div>
                     <div class="p-6">
                         <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-heart fa-lg"></i></div>
-                        <h4 class="font-bold mb-2 text-base">Team Culture</h4>
-                        <p class="text-sm text-gray-500">A supportive environment where every voice impacts our success.</p>
+                        <h4 class="font-bold mb-2 text-base uppercase tracking-wide">Team Culture</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">A supportive, high-integrity environment where every voice impacts success.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Current Openings: Reorganized as a Clean List -->
+        <!-- Current Openings: Reorganized into a Professional Balanced Grid -->
         <section id="openings" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="mb-12">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold font-headline uppercase">Open Opportunities</h2>
-                    <p class="text-gray-500 mt-2">Find the role that matches your expertise.</p>
+                    <div class="w-20 h-1 bg-brand-blue mx-auto mt-4 rounded-full"></div>
                 </div>
 
-                <div class="space-y-6">
-                    <!-- SRE Role -->
-                    <div class="job-row bg-gray-50/50 p-8 rounded-2xl border border-gray-200">
-                        <div class="md:flex justify-between items-start mb-6">
-                            <div class="mb-4 md:mb-0">
-                                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-blue-100 text-brand-blue rounded-full mb-3 inline-block">Technology</span>
-                                <h3 class="text-2xl font-bold text-gray-900">Site Reliability Engineer (SRE)</h3>
-                                <p class="text-brand-blue font-semibold mt-1"><i class="fas fa-wifi mr-2"></i> Fully Remote Position</p>
-                            </div>
-                            <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: SRE'" class="bg-brand-blue text-white px-8 py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all shadow-md inline-block">Quick Apply</a>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Site Reliability Engineer -->
+                    <div class="job-card bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-blue-100 text-brand-blue rounded-full">Technology</span>
+                            <span class="text-gray-400 text-xs font-bold uppercase"><i class="fas fa-wifi mr-1"></i> Remote</span>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">The Role</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">You will be the architect of our cloud stability. We need an engineer who views infrastructure as code and is passionate about automating the lifecycle of distributed retail and hospitality platforms to ensure 99.9% uptime.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">Key Responsibilities</h4>
-                                <ul class="text-sm text-gray-600 space-y-2">
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Design and maintain <strong>Terraform/IaC</strong> scripts for cloud scalability.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Automate rapid recovery and deployment via <strong>CI/CD pipelines</strong>.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Monitor system health using advanced <strong>observability tools</strong>.</span></li>
-                                </ul>
-                            </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Site Reliability Engineer (SRE)</h3>
+                        <p class="text-sm text-gray-500 italic mb-6">Architecting the cloud stability of our distributed business platforms.</p>
+                        
+                        <div class="mb-8 flex-grow">
+                            <h4 class="text-xs font-bold uppercase text-brand-blue mb-3 tracking-widest">Key Responsibilities:</h4>
+                            <ul class="text-[13px] text-gray-600 space-y-3">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Design and implement <strong>Infrastructure as Code (IaC)</strong> using Terraform.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Ensure 99.9% uptime for retail and hospitality SaaS integrations.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Automate rapid recovery processes and monitor system health.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Optimize deployment speed via robust <strong>CI/CD pipelines</strong>.</span></li>
+                            </ul>
                         </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: SRE'" class="w-full bg-brand-blue text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all">Quick Apply</a>
                     </div>
 
-                    <!-- IT Systems Engineer Role -->
-                    <div class="job-row bg-gray-50/50 p-8 rounded-2xl border border-gray-200">
-                        <div class="md:flex justify-between items-start mb-6">
-                            <div class="mb-4 md:mb-0">
-                                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-green-100 text-green-700 rounded-full mb-3 inline-block">Infrastructure</span>
-                                <h3 class="text-2xl font-bold text-gray-900">IT Infrastructure & Systems Engineer</h3>
-                                <p class="text-brand-blue font-semibold mt-1"><i class="fas fa-wifi mr-2"></i> Fully Remote Position</p>
-                            </div>
-                            <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: IT Systems Engineer'" class="bg-brand-blue text-white px-8 py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all shadow-md inline-block">Quick Apply</a>
+                    <!-- IT Infrastructure Engineer -->
+                    <div class="job-card bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-green-50 text-green-700 rounded-full">Infrastructure</span>
+                            <span class="text-gray-400 text-xs font-bold uppercase"><i class="fas fa-wifi mr-1"></i> Remote</span>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">The Role</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">Oversee the nervous system of J&A. This role manages enterprise-level networking and server health across 35+ physical locations, ensuring secure and seamless data flow between units and corporate headquarters.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">Key Responsibilities</h4>
-                                <ul class="text-sm text-gray-600 space-y-2">
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Administer <strong>Active Directory, Azure, and O365</strong> ecosystems.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Secure <strong>multi-site VPNs</strong> and firewall configurations.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Manage hardware lifecycle and <strong>disaster recovery</strong> protocols.</span></li>
-                                </ul>
-                            </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">IT Systems Engineer</h3>
+                        <p class="text-sm text-gray-500 italic mb-6">Securing the nervous system of our multi-site technology operations.</p>
+                        
+                        <div class="mb-8 flex-grow">
+                            <h4 class="text-xs font-bold uppercase text-brand-blue mb-3 tracking-widest">Key Responsibilities:</h4>
+                            <ul class="text-[13px] text-gray-600 space-y-3">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Manage <strong>Active Directory, Azure, and O365</strong> for corporate and retail teams.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Configure secure multi-site VPNs and enterprise firewall protocols.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Lead hardware lifecycle management and disaster recovery planning.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Ensure seamless POS connectivity across 35+ physical locations.</span></li>
+                            </ul>
                         </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: IT Systems Engineer'" class="w-full bg-brand-blue text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all">Quick Apply</a>
                     </div>
 
-                    <!-- Hotel Manager Role -->
-                    <div class="job-row bg-gray-50/50 p-8 rounded-2xl border border-gray-200">
-                        <div class="md:flex justify-between items-start mb-6">
-                            <div class="mb-4 md:mb-0">
-                                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-amber-100 text-amber-700 rounded-full mb-3 inline-block">Hospitality</span>
-                                <h3 class="text-2xl font-bold text-gray-900">Hotel General Manager</h3>
-                                <p class="text-gray-500 font-semibold mt-1"><i class="fas fa-hotel mr-2"></i> On-Site Management</p>
-                            </div>
-                            <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Hotel Manager'" class="bg-brand-blue text-white px-8 py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all shadow-md inline-block">Quick Apply</a>
+                    <!-- Hotel Manager -->
+                    <div class="job-card bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-amber-50 text-amber-600 rounded-full">Hospitality</span>
+                            <span class="text-gray-400 text-xs font-bold uppercase"><i class="fas fa-hotel mr-1"></i> On-Site</span>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">The Role</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">You are the face of our hospitality brand. We are looking for a high-energy leader to drive revenue, mentor staff, and ensure every guest experiences the J&A standard of excellence at our prime locations.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">Key Responsibilities</h4>
-                                <ul class="text-sm text-gray-600 space-y-2">
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Full <strong>P&L management</strong> including budgeting and forecasting.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Lead <strong>staff recruitment</strong>, training, and professional development.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Ensure 100% <strong>brand standard compliance</strong> and guest satisfaction.</span></li>
-                                </ul>
-                            </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Hotel General Manager</h3>
+                        <p class="text-sm text-gray-500 italic mb-6">Leading hospitality excellence through strategic onsite oversight.</p>
+                        
+                        <div class="mb-8 flex-grow">
+                            <h4 class="text-xs font-bold uppercase text-brand-blue mb-3 tracking-widest">Key Responsibilities:</h4>
+                            <ul class="text-[13px] text-gray-600 space-y-3">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Direct daily guest services, front-desk, and facility operations.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Oversee property <strong>P&L, budgeting, and financial forecasting</strong>.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Recruit, train, and mentor a high-performing service team.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Uphold 100% brand standard compliance and guest satisfaction scores.</span></li>
+                            </ul>
                         </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Hotel Manager'" class="w-full bg-brand-blue text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all">Quick Apply</a>
                     </div>
 
-                    <!-- Head of Housekeeping Role -->
-                    <div class="job-row bg-gray-50/50 p-8 rounded-2xl border border-gray-200">
-                        <div class="md:flex justify-between items-start mb-6">
-                            <div class="mb-4 md:mb-0">
-                                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-rose-100 text-rose-700 rounded-full mb-3 inline-block">Operations</span>
-                                <h3 class="text-2xl font-bold text-gray-900">Head of Housekeeping</h3>
-                                <p class="text-gray-500 font-semibold mt-1"><i class="fas fa-broom mr-2"></i> On-Site Management</p>
-                            </div>
-                            <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Head of Housekeeping'" class="bg-brand-blue text-white px-8 py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all shadow-md inline-block">Quick Apply</a>
+                    <!-- Head of Housekeeping -->
+                    <div class="job-card bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-rose-50 text-rose-600 rounded-full">Operations</span>
+                            <span class="text-gray-400 text-xs font-bold uppercase"><i class="fas fa-broom mr-1"></i> On-Site</span>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">The Role</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">The cornerstone of our guest experience. You will manage the heart of the hotel, ensuring that our cleanliness and safety standards are second to none through meticulous organization and team leadership.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-gray-400 mb-3 tracking-widest">Key Responsibilities</h4>
-                                <ul class="text-sm text-gray-600 space-y-2">
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Supervise <strong>daily room audits</strong> and laundry logistics.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Maintain <strong>inventory control</strong> for linens and supplies.</span></li>
-                                    <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-3 text-xs"></i> <span>Optimize <strong>labor scheduling</strong> to meet occupancy demands.</span></li>
-                                </ul>
-                            </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Head of Housekeeping</h3>
+                        <p class="text-sm text-gray-500 italic mb-6">Managing the heart of the hotel to ensure rigorous safety and hygiene.</p>
+                        
+                        <div class="mb-8 flex-grow">
+                            <h4 class="text-xs font-bold uppercase text-brand-blue mb-3 tracking-widest">Key Responsibilities:</h4>
+                            <ul class="text-[13px] text-gray-600 space-y-3">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Supervise cleaning crews and manage laundry/logistics workflows.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Conduct meticulous <strong>daily room audits</strong> for quality assurance.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Maintain inventory control for linens and chemical supplies.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-brand-blue mt-1 mr-3 text-xs"></i> <span>Optimize labor scheduling based on property occupancy.</span></li>
+                            </ul>
                         </div>
+                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Head of Housekeeping'" class="w-full bg-brand-blue text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue-dark transition-all">Quick Apply</a>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -234,7 +217,7 @@
         <section class="py-20 bg-white border-y border-gray-100">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold font-headline uppercase mb-4">Our Trajectory</h2>
-                <p class="text-gray-600 max-w-xl mx-auto mb-16">Growth isn't just a goal; it's our history. Join a company that has expanded 600% in four years.</p>
+                <p class="text-gray-600 max-w-xl mx-auto mb-16 italic">Growth is not just a goal; it's our history. Join a team that has expanded 600% in just four years.</p>
                 
                 <div class="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div class="timeline-item text-center relative px-4">
@@ -274,13 +257,13 @@
                             <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                                 <i class="fas fa-check text-xs"></i>
                             </div>
-                            <span class="text-sm">48-Hour Response Guarantee</span>
+                            <span class="text-sm font-semibold">48-Hour Response Guarantee</span>
                         </div>
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                                 <i class="fas fa-check text-xs"></i>
                             </div>
-                            <span class="text-sm">Direct Leadership Access</span>
+                            <span class="text-sm font-semibold">Direct Leadership Access</span>
                         </div>
                     </div>
 
@@ -317,7 +300,7 @@
 
     <!-- Standard Footer -->
     <footer class="bg-gray-800 text-white py-12 text-center">
-        <p class="font-bold text-xl mb-2">J&A Management Group LLC</p>
+        <p class="font-bold text-xl mb-2 tracking-tight">J&A Management Group LLC</p>
         <p class="text-gray-400 text-sm">© <span id="current-year"></span> All Rights Reserved.</p>
     </footer>
 
