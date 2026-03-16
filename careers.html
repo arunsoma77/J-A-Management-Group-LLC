@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
         :root { --brand-blue: #4A76A8; --brand-blue-dark: #3e6490; }
@@ -28,11 +27,26 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border-color: var(--brand-blue);
         }
+
+        /* Timeline Connector */
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 2px;
+            height: 100%;
+            background: #e2e8f0;
+            z-index: -1;
+        }
+        .timeline-item:last-child .timeline-dot::after {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Standard Header & Navigation (Matches Contact Page) -->
+    <!-- Standard Header & Navigation (Matches All Pages) -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
@@ -47,7 +61,7 @@
                 <a href="careers.html" class="nav-link text-gray-600 hover:text-brand-blue nav-active transition-all">Careers</a>
                 <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-blue transition-all">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white border-t">
             <a href="index.html" class="block py-2">Home</a>
@@ -68,7 +82,7 @@
             </div>
         </section>
 
-        <!-- EVP / Perks Section (Unique Idea for Attraction) -->
+        <!-- EVP / Perks Section -->
         <section class="py-16 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -118,10 +132,10 @@
                     <div class="job-card bg-white p-8 rounded-2xl border border-gray-100 flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-blue-50 text-brand-blue rounded-full">Technology</span>
-                            <span class="text-gray-400 text-xs"><i class="fas fa-wifi mr-1"></i> Remote / Hybrid</span>
+                            <span class="text-gray-400 text-xs"><i class="fas fa-wifi mr-1"></i> Remote</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Site Reliability Engineer (SRE)</h3>
-                        <p class="text-sm text-gray-600 mb-6">Responsible for building and maintaining scalable cloud infrastructure, automation pipelines, and reliable deployment environments supporting distributed business platforms.</p>
+                        <p class="text-sm text-gray-600 mb-6">Responsible for building and maintaining scalable cloud infrastructure and automation pipelines.</p>
                         <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: SRE'" class="mt-auto text-brand-blue font-bold text-sm uppercase tracking-wider flex items-center hover:underline">
                             Quick Apply <i class="fas fa-chevron-right ml-2 text-xs"></i>
                         </a>
@@ -131,10 +145,10 @@
                     <div class="job-card bg-white p-8 rounded-2xl border border-gray-100 flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-green-50 text-green-600 rounded-full">Infrastructure</span>
-                            <span class="text-gray-400 text-xs"><i class="fas fa-map-marker-alt mr-1"></i> Kansas City, MO</span>
+                            <span class="text-gray-400 text-xs"><i class="fas fa-wifi mr-1"></i> Remote</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">IT Infrastructure & Systems Engineer</h3>
-                        <p class="text-sm text-gray-600 mb-6">Responsible for managing enterprise infrastructure, network systems, and technology operations supporting distributed retail and hospitality environments.</p>
+                        <h3 class="text-xl font-bold mb-2">IT Systems Engineer</h3>
+                        <p class="text-sm text-gray-600 mb-6">Managing enterprise infrastructure, network systems, and multi-site technology operations.</p>
                         <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: IT Systems Engineer'" class="mt-auto text-brand-blue font-bold text-sm uppercase tracking-wider flex items-center hover:underline">
                             Quick Apply <i class="fas fa-chevron-right ml-2 text-xs"></i>
                         </a>
@@ -147,7 +161,7 @@
                             <span class="text-gray-400 text-xs"><i class="fas fa-hotel mr-1"></i> On-Site</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Hotel General Manager</h3>
-                        <p class="text-sm text-gray-600 mb-6">Lead operations for a premium brand property, driving guest satisfaction and financial performance through expert onsite management.</p>
+                        <p class="text-sm text-gray-600 mb-6">Lead operations for a premium brand property, driving guest satisfaction and performance.</p>
                         <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Hotel Manager'" class="mt-auto text-brand-blue font-bold text-sm uppercase tracking-wider flex items-center hover:underline">
                             Quick Apply <i class="fas fa-chevron-right ml-2 text-xs"></i>
                         </a>
@@ -160,7 +174,7 @@
                             <span class="text-gray-400 text-xs"><i class="fas fa-broom mr-1"></i> On-Site</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Head of Housekeeping</h3>
-                        <p class="text-sm text-gray-600 mb-6">Oversee property cleanliness standards, coordinate staff schedules, and manage housekeeping inventory for a top-tier location.</p>
+                        <p class="text-sm text-gray-600 mb-6">Oversee property cleanliness standards and manage housekeeping inventory and staff.</p>
                         <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Head of Housekeeping'" class="mt-auto text-brand-blue font-bold text-sm uppercase tracking-wider flex items-center hover:underline">
                             Quick Apply <i class="fas fa-chevron-right ml-2 text-xs"></i>
                         </a>
@@ -169,49 +183,95 @@
             </div>
         </section>
 
-        <!-- Growth Trajectory Section (Unique idea for Clients/Employees) -->
-        <section class="py-16 bg-white border-y border-gray-100">
+        <!-- UNIQUE REPLACEMENT: The J&A Journey Timeline -->
+        <section class="py-20 bg-white overflow-hidden">
             <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold font-headline uppercase mb-6">Built for Momentum</h2>
-                        <p class="text-gray-600 mb-8 leading-relaxed">Our portfolio expansion from 5 to 35+ properties in just 4 years is a testament to our strategic oversight and the talent we hire. We are scaling rapidly, providing a stable yet high-speed environment for our team.</p>
-                        <div class="flex space-x-8">
-                            <div><span class="text-3xl font-bold text-brand-blue">35+</span><p class="text-[10px] font-bold uppercase text-gray-400">Managed Assets</p></div>
-                            <div><span class="text-3xl font-bold text-brand-blue">500+</span><p class="text-[10px] font-bold uppercase text-gray-400">Team Members</p></div>
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold font-headline uppercase mb-4">Our Trajectory</h2>
+                    <p class="text-gray-500 max-w-xl mx-auto">We aren't just growing; we are evolving. Here is what it looks like to be on the winning team.</p>
+                </div>
+                
+                <div class="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="timeline-item text-center relative px-4">
+                        <div class="timeline-dot w-16 h-16 bg-blue-50 border-4 border-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md z-10 relative">
+                            <span class="text-brand-blue font-bold">2021</span>
                         </div>
+                        <h4 class="font-bold text-lg mb-2">Foundation</h4>
+                        <p class="text-sm text-gray-500 italic">"Starting with 5 properties and a vision for integrity-driven management."</p>
                     </div>
-                    <div class="h-[250px] relative"><canvas id="growthChart"></canvas></div>
+                    <div class="timeline-item text-center relative px-4">
+                        <div class="timeline-dot w-16 h-16 bg-brand-blue border-4 border-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md z-10 relative">
+                            <span class="text-white font-bold">Today</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">35+ Properties</h4>
+                        <p class="text-sm text-gray-500 italic">"Rapid expansion across 3 states with over 500 dedicated team members."</p>
+                    </div>
+                    <div class="timeline-item text-center relative px-4">
+                        <div class="timeline-dot w-16 h-16 bg-blue-50 border-4 border-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md z-10 relative">
+                            <span class="text-brand-blue font-bold">2026</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Innovation</h4>
+                        <p class="text-sm text-gray-500 italic">"Scaling our tech infrastructure and setting new standards in hospitality."</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Application Form -->
-        <section id="apply" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 max-w-3xl">
-                <div class="bg-white p-10 rounded-3xl shadow-xl border-t-4 border-brand-blue text-center">
-                    <h2 class="text-3xl font-bold font-headline uppercase mb-4">Start Your Journey</h2>
-                    <p class="text-gray-500 mb-8">Submit your interest below. We review all applications within 48 hours.</p>
-                    <form action="https://api.web3forms.com/submit" method="POST" class="text-left space-y-4">
-                        <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
-                        <input type="hidden" name="subject" id="subject_interest" value="Careers Inquiry">
+        <!-- UNIQUE REPLACEMENT: Quick-Connect Application Portal -->
+        <section id="apply" class="py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+                    <!-- Left: Engagement Text -->
+                    <div class="md:w-1/2">
+                        <h2 class="text-4xl font-bold font-headline uppercase mb-6 leading-tight">Ready for your<br><span class="text-brand-blue">Next Chapter?</span></h2>
+                        <p class="text-gray-400 text-lg mb-8">Whether you're a coder or a leader, we value the person behind the resume. Reach out and let's see how you fit into the J&A legacy.</p>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" name="name" placeholder="Full Name" required class="w-full border p-3 rounded-xl bg-gray-50 focus:ring-2 focus:ring-brand-blue outline-none">
-                            <input type="email" name="email" placeholder="Email Address" required class="w-full border p-3 rounded-xl bg-gray-50 focus:ring-2 focus:ring-brand-blue outline-none">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm">48-Hour Response Guarantee</span>
                         </div>
-                        <textarea name="message" placeholder="Tell us about your background..." required rows="4" class="w-full border p-3 rounded-xl bg-gray-50 focus:ring-2 focus:ring-brand-blue outline-none"></textarea>
-                        
-                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-xl shadow-lg hover:bg-brand-blue-dark transition-all uppercase tracking-widest">
-                            Submit Application
-                        </button>
-                    </form>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm">Direct Leadership Access</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Minimalist Modern Form -->
+                    <div class="md:w-1/2 w-full">
+                        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl text-gray-800">
+                            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                                <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
+                                <input type="hidden" name="subject" id="subject_interest" value="Careers Inquiry">
+                                
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                                    <input type="text" name="name" required class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brand-blue outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
+                                    <input type="email" name="email" required class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brand-blue outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Tell us your story</label>
+                                    <textarea name="message" required rows="3" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-brand-blue outline-none transition-all"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-brand-blue-dark transition-all uppercase tracking-widest mt-4">
+                                    Start Application
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Standard Footer -->
+    <!-- Standard Footer (Matches All Pages) -->
     <footer class="bg-gray-800 text-white py-12 text-center">
         <p class="font-bold text-xl mb-2">J&A Management Group LLC</p>
         <p class="text-gray-400 text-sm">© <span id="current-year"></span> All Rights Reserved.</p>
@@ -220,303 +280,6 @@
     <script>
         document.getElementById('mobile-menu-button').onclick = () => { document.getElementById('mobile-menu').classList.toggle('hidden'); };
         document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Growth Chart Script
-        const ctx = document.getElementById('growthChart').getContext('2d');
-        new Chart(ctx, { 
-            type: 'line', 
-            data: { 
-                labels: ['2021', '2022', '2023', '2024', '2025'], 
-                datasets: [{ 
-                    label: 'Properties Managed', 
-                    data: [5, 12, 18, 26, 35], 
-                    borderColor: '#4A76A8', 
-                    backgroundColor: 'rgba(74, 118, 168, 0.1)',
-                    tension: 0.4, 
-                    fill: true,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#fff',
-                    pointBorderWidth: 2
-                }] 
-            }, 
-            options: { 
-                maintainAspectRatio: false, 
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { grid: { color: '#f1f1f1' }, ticks: { font: { size: 10 } } },
-                    x: { grid: { display: false }, ticks: { font: { size: 10 } } }
-                }
-            }
-        });
-    </script>
-</body>
-</html>                <a href="team.html" class="nav-link-hover text-sm font-semibold text-slate-600 hover:text-brand-blue">Team</a>
-                <a href="careers.html" class="text-sm font-bold text-brand-blue border-b-2 border-brand-blue pb-1">Careers</a>
-                <a href="contact.html" class="bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:bg-slate-800 transition-all">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-slate-900"><i class="fas fa-bars text-2xl"></i></button>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero: The Human Element -->
-        <section class="relative py-28 md:py-40 bg-slate-900 overflow-hidden">
-            <div class="absolute inset-0 opacity-40">
-                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Team Background">
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900"></div>
-            <div class="container relative mx-auto px-6 text-center text-white">
-                <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-brand-blue/20 border border-brand-blue/30 text-brand-blue text-xs font-bold uppercase tracking-widest">Build the Future</span>
-                <h1 class="text-5xl md:text-7xl font-bold font-headline mb-8 leading-tight">Elevate Your Career<br><span class="text-brand-blue italic">The J&A Way</span></h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-                    From cloud architecture to premium hospitality, we manage a diverse portfolio where your expertise creates a tangible community impact.
-                </p>
-                <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#openings" class="bg-brand-blue text-white px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-white hover:text-brand-blue transition-all">View Openings</a>
-                    <a href="#perks" class="backdrop-blur-md bg-white/10 border border-white/20 text-white px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-white/20 transition-all">Why Us?</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- EVP Section: Why J&A? -->
-        <section id="perks" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center gap-16">
-                    <div class="w-full md:w-1/2">
-                        <h2 class="text-4xl md:text-5xl font-bold font-headline mb-6 gradient-text uppercase">A Career Without<br>Boundaries</h2>
-                        <p class="text-slate-600 mb-10 text-lg leading-relaxed">
-                            J&A Management Group isn't just a management firm; we are a growth engine. We provide our employees with the autonomy to lead and the resources to innovate across multiple industries.
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-chart-line text-brand-blue"></i></div>
-                                <div><h4 class="font-bold text-slate-900">Vertical Growth</h4><p class="text-sm text-slate-500">Fast-track paths to leadership roles.</p></div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-heart text-brand-blue"></i></div>
-                                <div><h4 class="font-bold text-slate-900">True Benefits</h4><p class="text-sm text-slate-500">Premium healthcare & flexible PTO.</p></div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-users text-brand-blue"></i></div>
-                                <div><h4 class="font-bold text-slate-900">Collaborative</h4><p class="text-sm text-slate-500">Weekly tech & leadership syncs.</p></div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-award text-brand-blue"></i></div>
-                                <div><h4 class="font-bold text-slate-900">Recognition</h4><p class="text-sm text-slate-500">Performance-based bonus structures.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 relative">
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1000&auto=format&fit=crop" class="rounded-3xl shadow-2xl" alt="Office Culture">
-                        <div class="absolute -bottom-10 -left-10 glass-card p-8 rounded-2xl shadow-xl hidden lg:block max-w-xs">
-                            <p class="text-slate-700 italic font-medium">"At J&A, I went from an Associate to a Regional Manager in 18 months. The growth here is real."</p>
-                            <div class="mt-4 flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-slate-200"></div>
-                                <div><p class="text-sm font-bold">Team Member</p><p class="text-xs text-slate-500">Operations Lead</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Job Board -->
-        <section id="openings" class="py-24 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20">
-                    <h2 class="text-4xl font-bold font-headline uppercase mb-4 tracking-tight">Open Positions</h2>
-                    <div class="w-20 h-1.5 bg-brand-blue mx-auto rounded-full"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-                    
-                    <!-- SRE -->
-                    <div class="job-card bg-white p-10 rounded-3xl border border-slate-200 flex flex-col">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="px-4 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-black uppercase tracking-widest">Technology</span>
-                            <span class="text-slate-400 text-xs font-bold"><i class="fas fa-map-marker-alt mr-1"></i> Remote / Hybrid</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Site Reliability Engineer (SRE)</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Build scalable cloud infrastructure and automation pipelines supporting our multi-state retail platforms.</p>
-                        <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-600">
-                            <li class="flex items-center"><i class="fas fa-terminal text-brand-blue mr-3 opacity-50"></i> IaC: Terraform / CloudFormation</li>
-                            <li class="flex items-center"><i class="fas fa-terminal text-brand-blue mr-3 opacity-50"></i> Reliability & Disaster Recovery</li>
-                            <li class="flex items-center"><i class="fas fa-terminal text-brand-blue mr-3 opacity-50"></i> CI/CD Pipeline Architecture</li>
-                        </ul>
-                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: SRE'" class="bg-slate-900 text-white text-center py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue transition-all">Quick Apply</a>
-                    </div>
-
-                    <!-- Systems Engineer -->
-                    <div class="job-card bg-white p-10 rounded-3xl border border-slate-200 flex flex-col">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="px-4 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest">Infrastructure</span>
-                            <span class="text-slate-400 text-xs font-bold"><i class="fas fa-map-marker-alt mr-1"></i> Kansas City, MO</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3">IT Systems Engineer</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Architect enterprise network systems and secure technology operations for 30+ distributed retail sites.</p>
-                        <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-600">
-                            <li class="flex items-center"><i class="fas fa-network-wired text-brand-blue mr-3 opacity-50"></i> Multi-site VPN & Security</li>
-                            <li class="flex items-center"><i class="fas fa-network-wired text-brand-blue mr-3 opacity-50"></i> O365 & Azure Administration</li>
-                            <li class="flex items-center"><i class="fas fa-network-wired text-brand-blue mr-3 opacity-50"></i> Enterprise Backup Strategies</li>
-                        </ul>
-                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: IT Systems Engineer'" class="bg-slate-900 text-white text-center py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue transition-all">Quick Apply</a>
-                    </div>
-
-                    <!-- Hotel Manager -->
-                    <div class="job-card bg-white p-10 rounded-3xl border border-slate-200 flex flex-col">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="px-4 py-1 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-widest">Hospitality</span>
-                            <span class="text-slate-400 text-xs font-bold"><i class="fas fa-map-marker-alt mr-1"></i> Columbia, MO</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Hotel General Manager</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Lead operations for a premium brand property, driving guest satisfaction and financial performance.</p>
-                        <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-600">
-                            <li class="flex items-center"><i class="fas fa-concierge-bell text-brand-blue mr-3 opacity-50"></i> Full P&L Responsibility</li>
-                            <li class="flex items-center"><i class="fas fa-concierge-bell text-brand-blue mr-3 opacity-50"></i> Team Recruitment & Training</li>
-                            <li class="flex items-center"><i class="fas fa-concierge-bell text-brand-blue mr-3 opacity-50"></i> Brand Standard Compliance</li>
-                        </ul>
-                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Hotel Manager'" class="bg-slate-900 text-white text-center py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue transition-all">Quick Apply</a>
-                    </div>
-
-                    <!-- Housekeeping -->
-                    <div class="job-card bg-white p-10 rounded-3xl border border-slate-200 flex flex-col">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="px-4 py-1 rounded-full bg-rose-50 text-rose-600 text-[10px] font-black uppercase tracking-widest">Operations</span>
-                            <span class="text-slate-400 text-xs font-bold"><i class="fas fa-map-marker-alt mr-1"></i> Olathe, KS</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Head of Housekeeping</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Set the standard for excellence in property cleanliness and operational efficiency.</p>
-                        <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-600">
-                            <li class="flex items-center"><i class="fas fa-check text-brand-blue mr-3 opacity-50"></i> Quality Audit Management</li>
-                            <li class="flex items-center"><i class="fas fa-check text-brand-blue mr-3 opacity-50"></i> Inventory & Supply Control</li>
-                            <li class="flex items-center"><i class="fas fa-check text-brand-blue mr-3 opacity-50"></i> Staff Training & Safety</li>
-                        </ul>
-                        <a href="#apply" onclick="document.getElementById('subject_interest').value='Application: Head of Housekeeping'" class="bg-slate-900 text-white text-center py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-brand-blue transition-all">Quick Apply</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Growth Section: The J&A Trajectory -->
-        <section class="py-24 bg-slate-900 text-white">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-20">
-                    <div class="w-full lg:w-1/3">
-                        <h2 class="text-4xl font-bold font-headline mb-6">Growing at Velocity</h2>
-                        <p class="text-slate-400 mb-8 leading-relaxed">Our portfolio has expanded by 600% since 2021. This growth creates unique opportunities for leadership across IT, Finance, and Hospitality.</p>
-                        <div class="space-y-8">
-                            <div class="flex items-center space-x-6">
-                                <span class="text-5xl font-black text-brand-blue">35+</span>
-                                <span class="text-sm font-bold text-slate-500 uppercase tracking-widest">Active<br>Properties</span>
-                            </div>
-                            <div class="flex items-center space-x-6">
-                                <span class="text-5xl font-black text-brand-blue">500+</span>
-                                <span class="text-sm font-bold text-slate-500 uppercase tracking-widest">Team<br>Members</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full lg:w-2/3 bg-slate-800 p-8 rounded-3xl">
-                        <div class="chart-container"><canvas id="growthChart"></canvas></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Premium Application Area -->
-        <section id="apply" class="py-32 bg-white">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold font-headline uppercase mb-4 tracking-tight">Ready to Begin?</h2>
-                    <p class="text-slate-500">Attach your story below. We review every application within 48 hours.</p>
-                </div>
-                <form id="applyForm" class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-50 p-10 md:p-16 rounded-[40px] shadow-sm border border-slate-100" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="6b60e2a4-481d-4120-892f-3d8a4820e1f0">
-                    <input type="hidden" name="subject" id="subject_interest" value="J&A Careers Interest">
-                    
-                    <div class="col-span-1">
-                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Full Name</label>
-                        <input type="text" name="name" placeholder="John Doe" required class="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:ring-2 focus:ring-brand-blue transition-all">
-                    </div>
-                    <div class="col-span-1">
-                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Email Address</label>
-                        <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:ring-2 focus:ring-brand-blue transition-all">
-                    </div>
-                    <div class="col-span-full">
-                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Cover Letter / Background</label>
-                        <textarea name="message" placeholder="Tell us about your background..." required class="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:ring-2 focus:ring-brand-blue transition-all min-h-[180px]"></textarea>
-                    </div>
-                    <div class="col-span-full text-center mt-6">
-                        <button type="submit" class="bg-brand-blue text-white px-16 py-5 rounded-full font-bold uppercase text-xs tracking-[0.2em] shadow-xl shadow-blue-200 hover:bg-slate-900 transition-all active:scale-95">
-                            Submit Application
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-10 flex justify-center items-center space-x-3">
-                <div class="w-10 h-px bg-slate-800"></div>
-                <span class="text-xs font-black uppercase tracking-[0.3em] text-slate-500">J&A Management Group LLC</span>
-                <div class="w-10 h-px bg-slate-800"></div>
-            </div>
-            <p class="text-sm text-slate-400">© <span id="current-year"></span> All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Menu toggle
-        document.getElementById('mobile-menu-button').onclick = () => {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        };
-
-        // Footer Year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Polished Growth Chart
-        const ctx = document.getElementById('growthChart').getContext('2d');
-        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, 'rgba(74, 118, 168, 0.4)');
-        gradient.addColorStop(1, 'rgba(74, 118, 168, 0)');
-
-        new Chart(ctx, { 
-            type: 'line', 
-            data: { 
-                labels: ['2021', '2022', '2023', '2024', '2025'], 
-                datasets: [{ 
-                    label: 'Managed Portfolio', 
-                    data: [5, 12, 18, 26, 35], 
-                    borderColor: '#4A76A8', 
-                    borderWidth: 4,
-                    pointRadius: 6,
-                    pointBackgroundColor: '#4A76A8',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    backgroundColor: gradient,
-                    fill: true,
-                    tension: 0.4 
-                }] 
-            }, 
-            options: { 
-                maintainAspectRatio: false, 
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { 
-                        grid: { color: 'rgba(255,255,255,0.05)' },
-                        ticks: { color: '#64748b' }
-                    },
-                    x: { 
-                        grid: { display: false },
-                        ticks: { color: '#64748b' }
-                    }
-                }
-            }
-        });
     </script>
 </body>
 </html>
